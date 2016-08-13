@@ -1,0 +1,315 @@
+\section{Desfase, Adelanto, Atraso}
+
+\begin{tikzpicture}
+  \begin{axis}[
+    axis x line=center,
+    axis y line=center,
+    xlabel={$t$},
+    ylabel={$f(t)$},
+    xtick={
+    0,
+    1.5707963,
+    3.1415926,
+    4.7123889,
+    6.2831853},
+    xticklabels={
+    0,
+    $\frac{\pi}{2}$,
+    $\pi$,
+    $3\frac{\pi}{2}$,
+    $2\pi$},
+    ytick={-1, 1},
+    yticklabels={$-V_0$,$V_0$},
+    xlabel style={below right},
+    ylabel style={above left},
+    xmin=-0.2,
+    xmax=7,
+    ymin=-1.4,
+    ymax=1.4,
+    xscale=2,
+    smooth]
+    \addplot[domain=0:2*pi, mark=none, color=blue]
+    {sin(deg(x))} node[above, pos=0.25] {$V_1 = V_0 \sin(t)$};
+    \addplot[domain=0:2*pi, mark=none, color=red]
+    {sin(deg(x+pi/2))} node[below, pos=0.5] {$V_2 = V_0 \sin(t+\phi)$};
+  \end{axis}
+  \label{img_desfase}
+\end{tikzpicture}
+
+Las señales están desfasadas.
+
+$V_2$ adelanta a $V_1$ en $\phi$.
+$V_1$ se atrasa de $V_2$ en $\phi$.
+
+Si $\phi=0\degree$ no hay desfase.
+
+\section{Identidades Trigonométricas}
+\begin{align}
+  \sin(A \pm B) &= \sin(A) \cdot \cos(B) \pm \cos(A) \cdot \sin(B) \label{id_trig1} \\
+  \cos(A \pm B) &= \cos(A) \cdot \cos(B) \mp \sin(A) \cdot \sin(B) \label{id_trig2}
+\end{align}
+
+\begin{align}
+  \sin(A \pm 180\degree) &= -\sin(A) \label{id_trig3} \\
+  \cos(A \pm 180\degree) &= -\cos(A) \label{id_trig4} \\
+  \sin(A \pm 90\degree) &= \pm \sin(A) \label{id_trig5} \\
+  \cos(A \pm 90\degree) &= \mp \cos(A) \label{id_trig6}
+\end{align}
+
+\begin{align}
+  \cos^{2}(A) = \frac{1 + \cos(2 A)}{2} \label{id_trig7}
+\end{align}
+
+\section{Elementos Pasivos}
+
+\subsection*{Resistencia}
+
+\begin{figure}[ht]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to [short, *-] (0.5, 0)
+      to [R, l^=R, v_=$v_R(t)$, i^=$i_R(t)$] (3.5, 0)
+      to [short, -*] (4, 0);
+    \end{circuitikz}
+  \end{center}
+\end{figure}
+
+\begin{align}
+  v_R(t) &= R \cdot i_R(t) \label{v_r} \\
+  i_R(t) &= \frac{v_R(t)}{R} \label{i_r}
+\end{align}
+
+\subsection*{Inductor}
+
+\begin{figure}[ht]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to [short, *-] (0.5, 0)
+      to [L, l^=L, v_=$v_L(t)$, i^=$i_L(t)$] (3.5, 0)
+      to [short, -*] (4, 0);
+    \end{circuitikz}
+  \end{center}
+\end{figure}
+
+\begin{align}
+  v_L(t) &= L \cdot \frac{di_L(t)}{dt}\label{v_l} \\
+  i_L(t) &= \frac{1}{L} \int v_L(t) dt \label{i_l}
+\end{align}
+
+\subsection*{Capacitor}
+
+\begin{figure}[ht]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to [short, *-] (0.5, 0)
+      to [C, l^=C, v_=$v_C(t)$, i^=$i_C(t)$] (3.5, 0)
+      to [short, -*] (4, 0);
+    \end{circuitikz}
+  \end{center}
+\end{figure}
+
+\begin{align}
+  v_C(t) &= \frac{1}{C} \int i_C(t) dt \label{v_c} \\
+  i_C(t) &= C \cdot \frac{dv_C(t)}{dt} \label{i_c}
+\end{align}
+
+\section{Potencia Promedio}
+
+\begin{align}
+  P(t) = i(t) \cdot v(t) = \frac{v^2(t)}{R} = \frac{i^2(t)}{R} \label{p_prom}
+\end{align}
+
+\subsection{Resistencia}
+
+\begin{figure}[ht]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to [sV, l=$v_i(t)$] (0,3)
+      to [short, i^=$i_R(t)$] (2,3)
+      to [R, l_=$R$, v^=$v_R(t)$] (2, 0)
+      to [short] (0,0);
+    \end{circuitikz}
+  \end{center}
+\end{figure}
+
+
+\begin{align*}
+  v_i(t) &= V_0 \cos(\omega t)
+\end{align*}
+
+Utilizando \ref{i_r}:
+\begin{align*}
+  i_R(t) &= \frac{V_0 \cos(\omega t)}{R}
+\end{align*}
+
+Utilizando \ref{p_prom}:
+\begin{align*}
+  P_R(t) &= \frac{V_0^2 \cos^{2}(\omega t)}{R}
+\end{align*}
+
+Utilizando \ref{id_trig7}:
+\begin{align*}
+  P_R(t) &= \frac{V_0^2 + V_0^2 \cos(2 \omega t)}{2 R} \\
+  P_{R_{Prom}}(t) &= \frac{V_0^2}{2 R}
+\end{align*}
+
+\subsection{Inductor}
+
+\begin{figure}[ht]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to [sV, l=$v_i(t)$] (0,3)
+      to [short, i^=$i_L(t)$] (2,3)
+      to [L, l_=$L$, v^=$v_L(t)$] (2, 0)
+      to [short] (0,0);
+    \end{circuitikz}
+  \end{center}
+\end{figure}
+
+\begin{align*}
+  v_i(t) &= V_0 \cos{\omega t}
+\end{align*}
+
+Utilizando \ref{i_l}:
+\begin{align*}
+  i_L(t) &= \frac{V_0 \sin(\omega t)}{\omega L} \\
+  i_L(t) &= \frac{V_0 \cos(\omega t - 90 \degree)}{\omega L}
+\end{align*}
+
+Utilizando \ref{p_prom}:
+\begin{align*}
+  P_L(t) &= \frac{V_0^2 \sin(\omega t) \cos(\omega t)}{\omega L} \\
+  P_L(t) &= \frac{V_0^2 \sin(2 \omega t)}{2 \omega L} \\
+  P_{L_{Prom}}(t) &= 0
+\end{align*}
+
+\textbf{Nota:} El inductor adelanta la corriente $90 \degree$.
+
+\subsection{Capacitor}
+\begin{figure}[ht]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to [sV, l=$v_i(t)$] (0,3)
+      to [short, i^=$i_C(t)$] (2,3)
+      to [C, l_=$C$, v^=$v_C(t)$] (2, 0)
+      to [short] (0,0);
+    \end{circuitikz}
+  \end{center}
+\end{figure}
+
+\begin{align*}
+  v_i(t) &= V_0 \cos(\omega t)
+\end{align*}
+
+Utilizando \ref{i_c}:
+\begin{align*}
+  i_C(t) &= - \omega C V_0 \sin(\omega t) \\
+  i_C(t) &= \omega C V_0 \cos(\omega t + 90 \degree)
+\end{align*}
+
+Utilizando \ref{p_prom}:
+\begin{align*}
+  P_C(t) &= - \omega C V_0^2 \sin(\omega t) \cos(\omega t) \\
+  P_C(t) &= - \frac{\omega C V_0^2 \sin(2 \omega t)}{2} \\
+  P_{C_{Prom}}(t) &= 0
+\end{align*}
+
+\textbf{Nota:} El capacitor atrasa la corriente $90 \degree$.
+
+\subsection{Circuito RLC en paralelo}
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to [sV, l=$v_i(t)$] (0,3)
+      to [short, i^=$i_i(t)$] (3,3)
+      to [short] (9,3)
+      to [C, l_=$C$, v^=$v_C(t)$, i_=$i_C(t)$] (9, 0)
+      to [short] (0,0);
+      \draw (3,3)
+      to[R, l_=$R$, v^=$v_R(t)$, i_=$i_R(t)$] (3,0);
+      \draw (6,3)
+      to[L, l_=$L$, v^=$v_L(t)$, i_=$i_L(t)$] (6,0);
+    \end{circuitikz}
+  \end{center}
+\end{figure}
+
+\begin{align*}
+  v_i(t) &= V_0 \cos(\omega t)
+\end{align*}
+
+\begin{align*}
+  i_R(t) &= \frac{V_0 \cos(\omega t)}{R} &
+  i_L(t) &= \frac{V_0 \sin(\omega t)}{\omega L} &
+  i_C(t) &= - \omega C V_0 \sin(\omega t)
+\end{align*}
+
+\begin{align*}
+  i_i(t) &= i_R(t) + i_L(t) + i_C(t) \\
+  &= \frac{V_0 \cos(\omega t)}{R} + \frac{V_0 \sin(\omega t)}{\omega L} - \omega C V_0 \sin(\omega t)\\
+  &= \frac{V_0 \cos(\omega t)}{R} + \left[\frac{V_0}{\omega L} - \omega C V_0\right] \sin(\omega t)
+\end{align*}
+
+\begin{align*}
+  P(t) &= \frac{V_0^2 \cos^{2}(\omega t)}{R} + V_0^2\left[\frac{1}{\omega L} - \omega C\right] \sin(\omega t) \cos(\omega t) \\
+  &= \frac{V_0^2 + \cos(2 \omega t)}{2R} + \frac{V_0^2}{2} \left[\frac{1}{\omega L} - \omega C\right] \sin(2 \omega t)
+\end{align*}
+\begin{align*}
+  \theta &= \alpha - \phi &
+  \alpha &: \mathrm{fase\mspace{5mu} de\mspace{5mu}} i &
+  \phi &: \mathrm{fase\mspace{5mu} de\mspace{5mu}} v
+\end{align*}
+\begin{align*}
+  P_{Prom} &= \frac{V_0^2}{2} I_0 \cos(\theta)
+\end{align*}
+
+\subsection{Circuito RLC en serie}
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to [sV, l=$v_i(t)$] (0,3)
+      to[R, l_=$R$, v^=$v_R(t)$, i_=$i_R(t)$] (3,3)
+      to[L, l_=$L$, v^=$v_L(t)$, i_=$i_L(t)$] (6,3)
+      to [C, l_=$C$, v^=$v_C(t)$, i_=$i_C(t)$] (9,3)
+      to [short, i^=$i_i(t)$] (9,0)
+      to [short] (0,0);
+    \end{circuitikz}
+  \end{center}
+\end{figure}
+
+
+\begin{align*}
+  v_i(t) &= V_0 \cos(\omega t)
+\end{align*}
+
+\begin{align*}
+  i_R(t) &= \frac{V_0 \cos(\omega t)}{R} &
+  i_L(t) &= \frac{V_0 \sin(\omega t)}{\omega L} &
+  i_C(t) &= - \omega C V_0 \sin(\omega t)
+\end{align*}
+
+\begin{align*}
+  i_i(t) &= i_R(t) + i_L(t) + i_C(t) \\
+  &= \frac{V_0 \cos(\omega t)}{R} + \frac{V_0 \sin(\omega t)}{\omega L} - \omega C V_0 \sin(\omega t)\\
+  &= \frac{V_0 \cos(\omega t)}{R} + \left[\frac{V_0}{\omega L} - \omega C V_0\right] \sin(\omega t)
+\end{align*}
+
+\begin{align*}
+  P(t) &= \frac{V_0^2 \cos^{2}(\omega t)}{R} + V_0^2\left[\frac{1}{\omega L} - \omega C\right] \sin(\omega t) \cos(\omega t) \\
+  &= \frac{V_0^2 + \cos(2 \omega t)}{2R} + \frac{V_0^2}{2} \left[\frac{1}{\omega L} - \omega C\right] \sin(2 \omega t)
+\end{align*}
+\begin{align*}
+  \theta &= \alpha - \phi &
+  \alpha &: \mathrm{fase\mspace{5mu} de\mspace{5mu}} i &
+  \phi &: \mathrm{fase\mspace{5mu} de\mspace{5mu}} v
+\end{align*}
+\begin{align*}
+  P_{Prom} &= \frac{V_0^2}{2} I_0 \cos(\theta)
+\end{align*}
