@@ -1,0 +1,29 @@
+% allows to use < and > on tikz pictures when babel set to spanish
+% http://tex.stackexchange.com/questions/166772/problem-with-babel-and-tikz-using-draw
+\usetikzlibrary{babel}
+\usetikzlibrary{positioning}
+
+\pgfplotsset{compat=1.13}
+
+\setlength{\columnsep}{1cm}
+
+\geometry{
+a4paper,
+left=25.4mm,
+right=25.4mm,
+top=25.4mm,
+bottom=25.4mm,
+heightrounded,
+}
+
+\sisetup{output-exponent-marker=\textsc{e}}
+\setlength{\jot}{10pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Apuntes Circuitos Lineales II}
+\rfoot{\thepage}
+\setlength{\headheight}{15pt}
+
+\title{Apuntes Circuitos Lineales II}
+\author{Emilio Rojas}

@@ -1,0 +1,23 @@
+% Add colored monospace text
+% Use as \codigo{color}{text}
+\newcommand{\codigo}[2]{
+\texttt{\textcolor{#2}{#1}}
+}
+
+% Unnumbered section added to toc
+\newcommand{\usection}[1]{
+\section*{#1}
+\addcontentsline{toc}{section}{#1}
+}
+
+% Unnumbered subsection added to toc
+\newcommand{\usubsection}[1]{
+\subsection*{#1}
+\addcontentsline{toc}{subsection}{#1}
+}
+
+% Unnumbered subsubsection added to toc
+\newcommand{\usubsubsection}[1]{
+\subsubsection*{#1}
+\addcontentsline{toc}{subsubsection}{#1}
+}
