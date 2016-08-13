@@ -1,5 +1,12 @@
 # Circuitos Lineales II
 
+## Contenidos
+- [Sobre el Repositorio](#sobre-el-repositorio)
+- [¿Cómo utilizar?](#cmo-utilizar)
+  - [Comprobando LaTeX](#comprobando-latex)
+  - [Compilando](#compilando)
+
+## Sobre el Repositorio
 El propósito de este repositorio es el de transcribir material del curso de
 circuitos lineales ii de la ucr (IE0309).
 
@@ -7,7 +14,7 @@ Los [Apuntes](https://github.com/emilio93/Circuitos-Lineales-II/tree/master/Apun
 son el principal objetivo a completar por el momento, y conforme transcurra el
 semestre(ii 2016) se irá agregando los apuntes de la clase.
 
-## ¿Cómo utilizar?
+## ¿Cómo Utilizar?
 
 Actualmente se da soporte a Window, sin embargo revisando el archivo
 [```build.bat```](https://github.com/emilio93/Circuitos-Lineales-II/blob/master/Apuntes/build.bat)
@@ -16,7 +23,7 @@ se puede obtener información del proceso de compilación.
 
 ### Comprobando LaTeX
 
-Para poder compilar las fuentes en un archivo pdf, va a necesitar ```pdflatex```,
+Para poder compilar las fuentes en un archivo pdf, se va a necesitar```pdflatex```,
 para asegurarse que lo tiene puede ejecutar el siguiente comando en la consola:
 
 ```bash
