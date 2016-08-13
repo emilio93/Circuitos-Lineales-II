@@ -2,7 +2,7 @@
 
 ## Contenidos
 - [Sobre el Repositorio](#sobre-el-repositorio)
-- [¿Cómo utilizar?](#cmo-utilizar)
+- [¿Cómo utilizar?](#cómo-utilizar)
   - [Comprobando LaTeX](#comprobando-latex)
   - [Compilando](#compilando)
 
