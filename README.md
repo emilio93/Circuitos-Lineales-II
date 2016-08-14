@@ -1,3 +1,4 @@
+![licenseApache2](https://img.shields.io/hexpm/l/plug.svg)
 # Circuitos Lineales II
 
 ## Contenidos
