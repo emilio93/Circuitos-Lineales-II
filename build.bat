@@ -17,7 +17,7 @@
 git describe --abbrev=0 > version.txt
 SET /p version=<version.txt
 DEL version.txt
-ECHO Version set to: -%version%
+ECHO Version set to: %version%
 
 SET compile_folder=Apuntes
 

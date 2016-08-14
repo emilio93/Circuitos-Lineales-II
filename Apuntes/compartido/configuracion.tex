@@ -16,10 +16,13 @@
 % http://tex.stackexchange.com/questions/166772/problem-with-babel-and-tikz-using-draw
 \usetikzlibrary{babel}
 \usetikzlibrary{positioning}
+\usetikzlibrary{quotes,angles}
 
 \pgfplotsset{compat=1.13}
 
 \setlength{\columnsep}{1cm}
+
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
 
 \geometry{
 a4paper,

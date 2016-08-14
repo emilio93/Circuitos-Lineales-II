@@ -21,25 +21,22 @@
 \usepackage{float}
 \usepackage{amsmath}
 \usepackage{apacite}
-\usepackage{siunitx}
 \usepackage{gensymb}
-\usepackage{wrapfig}
-\usepackage{pgfplots}
-\usepackage{textcomp}
+\usepackage{siunitx}
 \usepackage{amsfonts}
+\usepackage{etoolbox}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{hyperref}
 \usepackage{pdfpages}
+\usepackage{pgfplots}
 \usepackage{setspace}
+\usepackage{textcomp}
 \usepackage{circuitikz}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
-
-\usepackage{multicol}
-\usepackage[section]{placeins}
 
 \input{compartido/configuracion.tex}
 
@@ -53,9 +50,8 @@
   \input{compartido/portada.tex}
 
   \pagenumbering{roman}
-  \vspace*{\fill}
   \tableofcontents
-  \vspace*{\fill}
+  \newpage
 
   \pagenumbering{arabic}
 
