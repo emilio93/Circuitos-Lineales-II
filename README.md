@@ -4,6 +4,7 @@
 - [Sobre el Repositorio](#sobre-el-repositorio)
 - [¿Cómo utilizar?](#cómo-utilizar)
   - [Comprobando LaTeX](#comprobando-latex)
+  - [Corriendo `build.bat`](#corriento-build.bat)
   - [Compilando](#compilando)
 
 ## Sobre el Repositorio
@@ -15,11 +16,6 @@ son el principal objetivo a completar por el momento, y conforme transcurra el
 semestre(ii 2016) se irá agregando los apuntes de la clase.
 
 ## ¿Cómo Utilizar?
-
-Actualmente se da soporte a Window, sin embargo revisando el archivo
-[```build.bat```](https://github.com/emilio93/Circuitos-Lineales-II/blob/master/Apuntes/build.bat)
-y [```build.bat```](https://github.com/emilio93/Circuitos-Lineales-II/blob/master/build.bat)
-se puede obtener información del proceso de compilación.
 
 ### Comprobando LaTeX
 
@@ -45,15 +41,10 @@ compiled with poppler version 0.32.0
 compiled with jpeg version 8.4
 ```
 
+### Corriendo `build.bat`
+La forma más fácil para obtener el pdf es corriendo el archivo
+[`build.bat`](https://github.com/emilio93/Circuitos-Lineales-II/blob/master/build.bat).
+
 ### Compilando
 
-Una vez comprobado que se tiene pdflatex, se puede compilar el archivo con el
-siguiente comando en la consola:
-
-```bash
-build.bat
-```
-
-Esto va a compilar el archivo pdf de los apuntes.
-
-**Nota:** asegurarse que la consola esté en el folder del proyecto.
+El archivo `.tex` de entrada es [```main.tex```](https://github.com/emilio93/Circuitos-Lineales-II/blob/master/Apuntes/main.tex), se puede correr `pdflatex main` para compilarlo.
