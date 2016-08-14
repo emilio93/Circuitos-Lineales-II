@@ -4,7 +4,7 @@
 - [Sobre el Repositorio](#sobre-el-repositorio)
 - [¿Cómo utilizar?](#cómo-utilizar)
   - [Comprobando LaTeX](#comprobando-latex)
-  - [Corriendo `build.bat`](#corriento-build.bat)
+  - [Corriendo `build.bat`](#corriento-buildbat)
   - [Compilando](#compilando)
 
 ## Sobre el Repositorio
