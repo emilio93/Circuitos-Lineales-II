@@ -5,7 +5,7 @@ html, body {
 
 body {
   font-family: 'Nova Mono';
-  font-size: 20px;
+  font-size: 16px;
 }
 
 header, footer {
@@ -29,7 +29,7 @@ ul {
 }
 
 ul > li {
-  margin-left: 15px;
+  margin-left: 20px;
 }
 
 a, a:visited {
