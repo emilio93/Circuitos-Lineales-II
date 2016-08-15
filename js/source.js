@@ -1,9 +1,9 @@
 $(document).ready(function() {
-  ShowPage();
+  showPage();
 
   $('nav>ul>a').click(function(){
     setTimeout(function() {
-      showPage(window.location.hash.substr(1));
+      showPage(window.location.hash.subsstr(1));
     }, 1);
   });
 
@@ -15,28 +15,28 @@ $(document).ready(function() {
     $('#contenido > div > div').html('<p class="text-center"><i class="fa fa-spinner fa-spin"></i></span>');
     $.ajax('https://raw.githubusercontent.com/emilio93/Circuitos-Lineales-II/gh-pages/readmes/inicio.md', {})
     .then(function(data) {$('#contenido > div > div').html(marked(data));})
-    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));})
+    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));});
   };
 
   function loadNotes() {
     $('#contenido > div > div').html('<p class="text-center"><i class="fa fa-spinner fa-spin"></i></span>');
     $.ajax('https://raw.githubusercontent.com/emilio93/Circuitos-Lineales-II/gh-pages/readmes/apuntes.md', {})
     .then(function(data) {$('#contenido > div > div').html(marked(data));})
-    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));})
+    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));});
   };
 
   function loadDownloads() {
     $('#contenido > div > div').html('<p class="text-center"><i class="fa fa-spinner fa-spin"></i></span>');
     $.ajax('https://raw.githubusercontent.com/emilio93/Circuitos-Lineales-II/gh-pages/readmes/descargas.md', {})
     .then(function(data) {$('#contenido > div > div').html(marked(data));})
-    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));})
+    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));});
   };
 
-  function loadLicence() {
+  function loadLicense() {
     $('#contenido > div > div').html('<p class="text-center"><i class="fa fa-spinner fa-spin"></i></span>');
     $.ajax('https://raw.githubusercontent.com/emilio93/Circuitos-Lineales-II/gh-pages/LICENSE', {})
     .then(function(data) {$('#contenido > div > div').html('<h2>Licencia</h2><pre>' + data + '</pre>');})
-    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));})
+    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));});
   };
 
   function showPage(id) {
@@ -53,7 +53,7 @@ $(document).ready(function() {
     } else if (id === 'descargas') {
       loadDownloads();
     } else if (id === 'licencia') {
-      loadLicence();
+      loadLicense();
     }
   }
 
