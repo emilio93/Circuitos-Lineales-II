@@ -50,6 +50,8 @@ $(document).ready(function() {
       loadHome();
     } else if (id === 'apuntes') {
       loadNotes();
+    } else if (id === 'descargas') {
+      loadDownloads();
     } else if (id === 'licencia') {
       loadLicence();
     }
