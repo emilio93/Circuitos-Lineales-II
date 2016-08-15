@@ -25,6 +25,13 @@ $(document).ready(function() {
     .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));})
   };
 
+  function loadDownloads() {
+    $('#contenido > div > div').html('<p class="text-center"><i class="fa fa-spinner fa-spin"></i></span>');
+    $.ajax('https://raw.githubusercontent.com/emilio93/Circuitos-Lineales-II/gh-pages/readmes/descargas.md', {})
+    .then(function(data) {$('#contenido > div > div').html(marked(data));})
+    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));})
+  };
+
   function loadLicence() {
     $('#contenido > div > div').html('<p class="text-center"><i class="fa fa-spinner fa-spin"></i></span>');
     $.ajax('https://raw.githubusercontent.com/emilio93/Circuitos-Lineales-II/gh-pages/LICENSE', {})
