@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  loadHome();
+  ShowPage();
 
   $('nav>ul>a').click(function(){
     setTimeout(function() {
