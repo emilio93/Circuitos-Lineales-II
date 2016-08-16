@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "app",
   "main": "app.js",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.14.0"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.12",

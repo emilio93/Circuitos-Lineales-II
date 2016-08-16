@@ -33,7 +33,7 @@ gulp.task('css', (cb) => {
     gulp.src(cssfiles),
     sourcemaps.init(),
     less(),
-    cleanCSS(),
+    // cleanCSS(),
     concat('style.css'),
     sourcemaps.write(),
     gulp.dest(cssfolder)
