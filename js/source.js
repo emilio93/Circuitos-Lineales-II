@@ -1,6 +1,29 @@
 $(document).ready(function() {
   showPage();
 
+  $('a, nav button').click(function() {
+    $(this).blur();
+  });
+
+  $('nav button').click(function() {
+    window.location.hash = $(this).attr('data-href');
+
+    $('nav').animate({
+      left: '-100%'
+    }, 100);
+  })
+
+  $('.nav-button').click(function() {
+    $(this).blur();
+    var left = '-100%';
+    if ($('nav').css('left') !== '0px') {
+      left = '0px';
+    }
+    $('nav').animate({
+      left: left
+    }, 100);
+  })
+
   $('nav>ul>a').click(function(){
     setTimeout(function() {
       showPage(window.location.hash.substr(1));
@@ -12,32 +35,34 @@ $(document).ready(function() {
   });
 
   function loadHome() {
-    $('#contenido > div > div').html('<p class="text-center"><i class="fa fa-spinner fa-spin"></i></span>');
-    $.ajax('readmes/inicio.md', {})
-    .then(function(data) {$('#contenido > div > div').html(marked(data));})
-    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));});
+    loadFile('readmes/inicio.md', 'Circuitos Lineales II');
   };
 
   function loadNotes() {
-    $('#contenido > div > div').html('<p class="text-center"><i class="fa fa-spinner fa-spin"></i></span>');
-    $.ajax('readmes/apuntes.md', {})
-    .then(function(data) {$('#contenido > div > div').html(marked(data));})
-    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));});
+    loadFile('readmes/apuntes.md', 'Apuntes');
   };
 
   function loadDownloads() {
-    $('#contenido > div > div').html('<p class="text-center"><i class="fa fa-spinner fa-spin"></i></span>');
-    $.ajax('readmes/descargas.md', {})
-    .then(function(data) {$('#contenido > div > div').html(marked(data));})
-    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));});
+    loadFile('readmes/descargas.md', 'Descargas');
   };
 
   function loadLicense() {
-    $('#contenido > div > div').html('<p class="text-center"><i class="fa fa-spinner fa-spin"></i></span>');
-    $.ajax('LICENSE', {})
-    .then(function(data) {$('#contenido > div > div').html('<h2>Licencia</h2><div class="pre-scroll"><pre>' + data + '</pre></div>');})
-    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));});
+    loadFile('LICENSE', 'Licencia', function(data) {
+      $('#contenido > div > div')
+      .hide()
+      .html('<h2>Licencia</h2><div class="scroll-holder"><pre>' + data + '</pre></div>')
+      .fadeIn(200);
+    });
   };
+
+  function loadFile(url, name, onSuccess) {
+    $('#contenido > div > div').html('<p class="text-center"><i class="fa fa-spinner fa-spin"></i></span>');
+    $.ajax(url, {})
+    .then(typeof onSuccess === 'function'? onSuccess: function(data) {
+      $('#contenido > div > div').hide().html('<h2>' + name + '</h2><div class="scroll-holder"><div>' + marked(data) + '</div></div>').fadeIn(200);
+    })
+    .fail(function() {$('#contenido > div > div').html(marked('## Error\nNo se pudo cargar contenido.'));});
+  }
 
   function showPage(id) {
     if (typeof id === 'undefined' || id.length <= 1) {
@@ -47,13 +72,24 @@ $(document).ready(function() {
     }
 
     if (id === 'inicio') {
+      $('nav button').removeClass('active').removeClass('disabled');
       loadHome();
-    } else if (id === 'apuntes') {
+      $('nav button.inicio').addClass('active').addClass('disabled');
+    }
+    else if (id === 'apuntes') {
+      $('nav button').removeClass('active').removeClass('disabled');
       loadNotes();
-    } else if (id === 'descargas') {
+      $('nav button.apuntes').addClass('active').addClass('disabled');
+    }
+    else if (id === 'descargas') {
+      $('nav button').removeClass('active').removeClass('disabled');
       loadDownloads();
-    } else if (id === 'licencia') {
+      $('nav button.descargas').addClass('active').addClass('disabled');
+    }
+    else if (id === 'licencia') {
+      $('nav button').removeClass('active').removeClass('disabled');
       loadLicense();
+      $('nav button.licencia').addClass('active').addClass('disabled');
     }
   }
 

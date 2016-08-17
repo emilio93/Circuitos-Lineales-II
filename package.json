@@ -1,23 +1,23 @@
 {
-  "name": "app",
-  "version": "0.0.0",
+  "name": "circuitos-lineales-ii-website",
+  "version": "1.0.0",
   "description": "app",
-  "main": "app.js",
+  "main": "server.js",
   "dependencies": {
     "express": "^4.14.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^2.0.12",
-    "gulp-concat": "^2.6.0",
+    "pump": "^1.0.1",
     "gulp-less": "^3.1.0",
-    "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^2.0.0",
-    "pump": "^1.0.1"
+    "gulp-concat": "^2.6.0",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-sourcemaps": "^1.6.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Emilio Rojas",
+  "license": "Apache-2.0"
 }

@@ -1,5 +1,5 @@
-## Descargas
-Acá se encuentran las descargas para las versiones del proyecto.
+Acá se encuentran las descargas para las versiones del proyecto. De cada versión
+se puede descargar al menos el pdf compilado y el código fuente de la versión.
 
 ### v0.2.x
 
