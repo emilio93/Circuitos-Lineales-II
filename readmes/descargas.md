@@ -14,7 +14,7 @@ Se corrige formula que estaba mal en la versión anterior.
 - [Código Fuente(.tar.gz)](https://github.com/emilio93/Circuitos-Lineales-II/archive/v0.1.5.tar.gz)
 
 ##### Github
- [https://github.com/emilio93/Circuitos-Lineales-II/releases/tag/v0.1.4](https://github.com/emilio93/Circuitos-Lineales-II/releases/tag/v0.1.5).
+ [https://github.com/emilio93/Circuitos-Lineales-II/releases/tag/v0.1.5](https://github.com/emilio93/Circuitos-Lineales-II/releases/tag/v0.1.5).
 
 #### ~~v0.1.4~~ - ~~Apuntes1~~
 Esta es la versión para los apuntes 1. No está revisada por ningún profesor.
