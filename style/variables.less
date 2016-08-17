@@ -1,0 +1,19 @@
+@base: hsl(240, 0.3, 0.5);
+
+@dark: darken(@base, 40);
+@dark75-tr: fade(@dark, 75);
+@dark50-tr: fade(@dark, 50);
+@dark25-tr: fade(@dark, 25);
+
+@light: lighten(@base, 45);
+@light75-tr: fade(@light, 75);
+@light50-tr: fade(@light, 50);
+@light25-tr: fade(@light, 25);
+
+@accent: hsl(25, 0.6, 0.5);
+@accent-active: saturate(@accent, 20);
+@accent-disabled: desaturate(@accent, 30);
+
+@font-fam: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+
+@maxwidth: 992px;

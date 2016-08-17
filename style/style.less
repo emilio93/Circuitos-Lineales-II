@@ -1,80 +1,5 @@
-@base: hsl(240, 0.3, 0.5);
-
-@dark: darken(@base, 40);
-@dark75-tr: fade(@dark, 75);
-@dark50-tr: fade(@dark, 50);
-@dark25-tr: fade(@dark, 25);
-
-@light: lighten(@base, 45);
-@light75-tr: fade(@light, 75);
-@light50-tr: fade(@light, 50);
-@light25-tr: fade(@light, 25);
-
-@accent: hsl(25, 0.6, 0.5);
-@accent-active: saturate(@accent, 20);
-@accent-disabled: desaturate(@accent, 30);
-
-@font-fam: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
-
-@maxwidth: 992px;
-
-.responsive(@maxwidth; @rules) {
-  /*  iPhone 4 and 4S  */
-  @media only screen
-    and (min-device-width: 320px)
-    and (max-device-width: 480px)
-    and (-webkit-min-device-pixel-ratio: 2) {
-      @rules();
-  }
-  /*  iPhone 5 and 5S  */
-  @media only screen
-    and (min-device-width: 320px)
-    and (max-device-width: 568px)
-    and (-webkit-min-device-pixel-ratio: 2) {
-      @rules();
-  }
-  /*  iPhone 6  */
-  @media only screen
-    and (min-device-width: 375px)
-    and (max-device-width: 667px)
-    and (-webkit-min-device-pixel-ratio: 2) {
-      @rules();
-  }
-  /*  iPhone 6+  */
-  @media only screen
-    and (min-device-width: 414px)
-    and (max-device-width: 736px)
-    and (-webkit-min-device-pixel-ratio: 3) {
-    @rules();
-  }
-
-  /*  Galaxy S4  */
-  @media screen
-    and (device-width: 320px)
-    and (device-height: 640px)
-    and (-webkit-device-pixel-ratio: 3) {
-      @rules();
-  }
-
-  /*  Galaxy S5  */
-  @media screen
-    and (device-width: 360px)
-    and (device-height: 640px)
-    and (-webkit-device-pixel-ratio: 3) {
-      @rules();
-  }
-
-  /*  HTC One  */
-  @media screen
-    and (device-width: 360px)
-    and (device-height: 640px)
-    and (-webkit-device-pixel-ratio: 3) {
-      @rules();
-  }
-  @media only screen and (max-width: @maxwidth) {
-      @rules();
-  }
-}
+@import "variables.less";
+@import "mixins.less";
 
 html {
   background: url('../img/electrico-1.png') no-repeat 63% 15% fixed;
@@ -183,6 +108,7 @@ header {
       margin-top: 5px;
       font-weight: 700;
       .responsive(@maxwidth, {
+        font-size: 20px;
         text-align: center;
       });
     }
@@ -221,7 +147,7 @@ header {
         font-weight: 700;
         background-color: @dark25-tr;
         margin: 0 0 0 5px;
-        @media (max-width: @maxwidth) {
+        .responsive(@maxwidth, {
           display: table-cell;
           margin: 0;
           background-color: @dark;
@@ -229,8 +155,7 @@ header {
           border-bottom: solid 1px @light75-tr;
           font-size: 72px;
           width: 100%;
-        }
-
+        });
       }
       button {
         width: 100%;
@@ -273,6 +198,7 @@ header {
 footer {
   bottom: 0;
   height: 30px;
+  display: none;
   text-align: center;
 }
 
@@ -298,7 +224,7 @@ section {
     margin-top: -60px;
     padding-top: 60px;
     left: 0;
-    padding-bottom: 30px;
+    padding-bottom: 0;
     width: 100%;
   });
 }
@@ -311,11 +237,15 @@ section {
 .content-display {
   height: inherit;
   padding: 0 0 20px;
+  .responsive(@maxwidth, {
+    padding: 0;
+  });
   h2 {
     box-shadow: 0 5px 4px -4px rgba(0,0,0,0.4);
     margin-bottom: 0;
     padding-bottom: 10px;
     padding-left: 10px;
+    margin-top: 0;
   }
 
   > div {
@@ -347,6 +277,9 @@ section {
     padding: 10px;
   }
   > pre {
+    margin: 0;
+    padding: 12px;
+    overflow-x: auto;
     font-size: 18px;
     background-color: fade(@light, 90%);
     box-shadow: inset 0 0 7px rgba(0,0,0,0.4);

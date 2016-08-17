@@ -14,6 +14,8 @@ var jsfiles = [
 
 var cssfolder = path.join(__dirname, 'style/');
 var cssfiles = [
+  'variables.less',
+  'mixins.less',
   'style.less'
 ].map((file) => {return cssfolder + file;});
 
