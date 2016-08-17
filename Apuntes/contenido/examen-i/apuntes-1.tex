@@ -12,6 +12,8 @@
 %   See the License for the specific language governing permissions and
 %   limitations under the License.
 
+\chapter{Temas Introductorios}
+
 \section{Desfase, Adelanto, Atraso}
 
 \begin{tikzpicture}
@@ -128,7 +130,7 @@ Si $\phi=0\degree$ no hay desfase.
 \section{Potencia Promedio}
 
 \begin{align}
-  P(t) = i(t) \cdot v(t) = \frac{v^2(t)}{R} = \frac{i^2(t)}{R} \label{pot} \\
+  P(t) = i(t) \cdot v(t) = \frac{v^2(t)}{R} = i^2(t) \cdot R \label{pot} \\
   P_{Prom} = \frac{1}{T} \int_T P(t) dt \label{pot_prom}
 \end{align}
 
@@ -342,22 +344,3 @@ Aplicando fórmula:
 \begin{equation}
   P_{Prom_{Paralelo}} = \frac{V_0 \sqrt{\frac{V_0^2}{R^2} + \left(\frac{V_0}{\omega L} - \omega C V_0 \right)^2}}{2 \sqrt{\frac{V_0^2}{R^2} + \left(\frac{V_0}{\omega L} - \omega C V_0 \right)^2}} \cdot \frac{V_0}{R} = \frac{V_0^2}{2R} \label{pot_prom_paral}
 \end{equation}
-
-\subsection{Circuito RLC en serie}
-\begin{figure}[H]
-  \begin{center}
-    \begin{circuitikz}
-      \draw (0,0)
-      to [sV, l=$v_i(t)$] (0,3)
-      to[R, l_=$R$, v^<=$v_R(t)$, i_=$i_R(t)$] (3,3)
-      to[L, l_=$L$, v^<=$v_L(t)$, i_=$i_L(t)$] (6,3)
-      to [C, l_=$C$, v^<=$v_C(t)$, i_=$i_C(t)$] (9,3)
-      to [short, i^=$i_i(t)$] (9,0)
-      to [short] (0,0);
-    \end{circuitikz}
-  \end{center}
-\end{figure}
-
-\begin{equation*}
-  v_i(t) = V_0 \cos(\omega t) = v_R(t) + v_L(T) + v_C(t)
-\end{equation*}
