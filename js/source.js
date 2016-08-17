@@ -3,11 +3,14 @@ $(document).ready(function() {
 
   $('a, nav button').click(function() {
     $(this).blur();
+    $('nav').animate({
+      left: '-100%'
+    }, 100);
   });
 
   $('nav button').click(function() {
+    $(this).blur();
     window.location.hash = $(this).attr('data-href');
-
     $('nav').animate({
       left: '-100%'
     }, 100);
@@ -53,7 +56,7 @@ $(document).ready(function() {
     loadFile('LICENSE', 'Licencia', function(data) {
       $('#contenido > div > div')
       .hide()
-      .html('<h2>Licencia</h2><div class="scroll-holder"><pre>' + data + '</pre></div>')
+      .html('<h2>Licencia</h2><div class="scroll-holder"><div class="light-content"><p>' + data.replace(/\n/mg, '\n<br>\n') + '</p></div></div>')
       .fadeIn(200);
     });
   };
