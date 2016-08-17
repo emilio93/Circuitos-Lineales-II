@@ -11,6 +11,8 @@ $(document).ready(function() {
     $('nav').animate({
       left: '-100%'
     }, 100);
+
+    $(this).removeClass('fa-2x');
   })
 
   $('.nav-button').click(function() {
@@ -18,6 +20,7 @@ $(document).ready(function() {
     var left = '-100%';
     if ($('nav').css('left') !== '0px') {
       left = '0px';
+      $(this).removeClass('fa-2x');
     }
     $('nav').animate({
       left: left
