@@ -1,4 +1,3 @@
-### Sobre el Proyecto
 El propósito de este proyecto es el de transcribir material del curso de#
 circuitos lineales ii de la ucr (IE0309) a formato LaTeX.
 

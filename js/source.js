@@ -1,34 +1,55 @@
 $(document).ready(function() {
   showPage();
 
+  $(window).resize(function(){
+    if ($(window).width() > 992) {
+      $('nav').css({
+        left: '',
+        margin: '0 auto'
+      }, 100);
+      $('footer').show(100);
+    } else {
+      $('footer').hide(100);
+    }
+  });
+
   $('a, nav button').click(function() {
     $(this).blur();
-    $('nav').animate({
-      left: '-100%'
-    }, 100);
+    if ($(window).width() <= 992) {
+      $('nav').animate({
+        left: '-100%'
+      }, 100);
+      $('footer').hide(100);
+    }
   });
 
   $('nav button').click(function() {
     $(this).blur();
     window.location.hash = $(this).attr('data-href');
-    $('nav').animate({
-      left: '-100%'
-    }, 100);
-
-    $(this).removeClass('fa-2x');
+    if ($(window).width() <= 992) {
+      $('nav').animate({
+        left: '-100%'
+      }, 100);
+      $('footer').hide(100);
+    }
   })
 
-  $('.nav-button').click(function() {
-    $(this).blur();
+  $('button.nav-button').on('click', function() {
     var left = '-100%';
     if ($('nav').css('left') !== '0px') {
       left = '0px';
-      $(this).removeClass('fa-2x');
+      $('footer').show(100);
+    } else {
+      $('footer').hide(100);
     }
     $('nav').animate({
       left: left
     }, 100);
-  })
+    $(this).blur();
+  }).on('touchend tap', function(e) {
+    console.log('tap');
+    $(this).blur();
+  });
 
   $('nav>ul>a').click(function(){
     setTimeout(function() {

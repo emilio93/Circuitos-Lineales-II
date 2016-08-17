@@ -16,7 +16,9 @@ var cssfolder = path.join(__dirname, 'style/');
 var cssfiles = [
   'variables.less',
   'mixins.less',
-  'style.less'
+  'style.less',
+  'header.less',
+  'section.less'
 ].map((file) => {return cssfolder + file;});
 
 gulp.task('js', (cb) => {

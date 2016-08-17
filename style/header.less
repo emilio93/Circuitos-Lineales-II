@@ -1,0 +1,103 @@
+@import "variables.less";
+@import "mixins.less";
+
+header {
+  top: 0;
+  height: 100px;
+  .responsive(@maxwidth, {
+    height: 60px;
+  });
+
+  .container {
+    height: 100%;
+    .responsive(@maxwidth, {
+      z-index: -1;
+      height: 0;
+    });
+
+    h1 {
+      margin-top: 5px;
+      font-weight: 700;
+      .responsive(@maxwidth, {
+        font-size: 20px;
+        text-align: center;
+      });
+    }
+
+    nav {
+      position: absolute;
+      bottom: 0px;
+      height: 30px;
+      .responsive(@maxwidth, {
+        z-index: -1;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: -100%;
+        background-color: @dark75-tr;
+        background-image: linear-gradient(to bottom, @dark, @dark75-tr);
+      });
+    }
+
+    nav > ul {
+      padding: 0;
+      margin: -2px;
+      border: 0;
+
+      .responsive(@maxwidth, {
+        display: table;
+        width: 100%;
+        top: 0;
+        left: 0;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 34px 0 0;
+      });
+
+      li {
+        list-style: none;
+        float: left;
+        font-weight: 700;
+        background-color: @dark25-tr;
+        margin: 0 0 0 5px;
+        .responsive(@maxwidth, {
+          display: table-cell;
+          margin: 0;
+          color: @light;
+          border-bottom: solid 1px @light75-tr;
+          font-size: 20px;
+          width: 100%;
+        });
+      }
+      button {
+        width: 100%;
+        text-decoration: none;
+        padding: 3px 8px 3px 8px;
+        .responsive(@maxwidth, {
+        })
+      }
+      button:hover, button:focus {
+        background-color: @dark25-tr;
+      }
+
+      button.active {
+        color: @accent;
+        background: @dark50-tr;
+      }
+    }
+  }
+
+  #main-title {
+    >a, >a:visited, >a:active {
+      color: @light;
+      text-decoration: none;
+      .transition();
+    }
+    >a:hover, >a:focus {
+      color: @light75-tr;
+      text-decoration: none;
+      .transition();
+    }
+  }
+}
