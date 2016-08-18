@@ -1,0 +1,258 @@
+%   Copyright 2016 Emilio Rojas
+%
+%   Licensed under the Apache License, Version 2.0 (the "License");
+%   you may not use this file except in compliance with the License.
+%   You may obtain a copy of the License at
+%
+%       http://www.apache.org/licenses/LICENSE-2.0
+%
+%   Unless required by applicable law or agreed to in writing, software
+%   distributed under the License is distributed on an "AS IS" BASIS,
+%   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+%   See the License for the specific language governing permissions and
+%   limitations under the License.
+
+\subsection{Circuito RLC en serie}
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to [sV, l=$v_i(t)$] (0,3)
+      to[R, l_=$R$, v^<=$v_R(t)$, i_=$i_R(t)$] (3,3)
+      to[L, l_=$L$, v^<=$v_L(t)$, i_=$i_L(t)$] (6,3)
+      to [C, l_=$C$, v^<=$v_C(t)$, i_=$i_C(t)$] (9,3)
+      to [short, i^=$i_i(t)$] (9,0)
+      to [short] (0,0);
+    \end{circuitikz}
+  \end{center}
+\end{figure}
+
+\begin{equation*}
+  v_i(t) = V_0 \cos(\omega t) = v_R(t) + v_L(T) + v_C(t)
+\end{equation*}
+
+Sabemos que la corriente va a sufrir un desfase debido a que la magnitud del
+desfase producido por el capacitor se verá contrarrestado por el del inductor.
+También sabemos que se verá afectada su magnitud. Por esto la expresión para la
+corriente queda en su forma más generalizada, en que la frecuencia no varia pero
+su magnitud y fase pueden variar:
+\begin{align*}
+  i_i(t) &= I_M \cos(\omega t + \phi) = i_R(t) = i_L(t) = i_C(t) \\
+  v_i(t-\phi) &= i_i(t-\phi) R + L \frac{di_i(t-\phi)}{dt} + \frac{1}{C} \int i_i(t-\phi) dt \\
+  v_i(t-\phi) &= I_0 R \cos(\omega t)  - \omega L I_0 \sin(\omega t) + \frac{I_0}{\omega C} \sin(wt) \\
+  v_i(t-\phi) &= I_0 \left[R \cos(\omega t) + \left(\frac{1}{\omega C} - \omega L \right) \sin(wt) \right]
+\end{align*}
+
+Ahora creamos el siguente triangulo para reducir la expresión a algo que nos
+sirva más:
+
+\begin{center}
+  \begin{tikzpicture}
+    \draw
+    (0,0) coordinate (a)
+    -- (1.5,0) coordinate (label_adjacent)
+    node[below] {$\frac{V_0}{\omega L} - \omega C V_0$}
+    -- (3,0) coordinate (b)
+    -- (1.5, 1.5) coordinate (label_hypotenuse)
+    node[above right] {$\sqrt{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2}$}
+    -- (0,3) coordinate (c)
+    -- (0,1.5) coordinate (label_opposite)
+    node[left] {$\frac{V_0}{R}$}
+    -- (0,0) coordinate (d) node[above right] {}
+    pic["$\beta$", draw=black, angle eccentricity=1.2, angle radius=1cm]
+    {angle=c--b--a};
+  \end{tikzpicture}
+\end{center}
+
+Notese que el valor de la hipotenusa depende únicamente de los catetos.
+
+\begin{align*}
+  \cos(\beta) &= \frac{\frac{1}{\omega C} - \omega L}{\sqrt{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2}} \\
+  \sin(\beta) &= \frac{R}{\sqrt{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2}} \\
+  \beta &= \tan{^{-1}}\left(\frac{R}{\frac{1}{\omega C} - \omega L}\right)
+\end{align*}
+
+Entonces ahora sustituimos:
+
+\begin{align*}
+  v_i(t-\phi) &= I_0 \left[\sqrt{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2} \sin(\beta) \cos(\omega t) + \sqrt{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2} \cos(\beta) \sin(wt) \right] \\
+  v_i(t-\phi) &= I_0 \sqrt{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2} \left[ \sin(\beta) \cos(\omega t) + \cos(\beta) \sin(wt) \right]\\
+  &\mathrm{Utilizando\quad}\ref{id_trig1}\\
+  v_i(t-\phi) &= I_0 \sqrt{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2} \sin(\omega t - \phi) \\
+  v_i(t-\phi) &= I_0 \sqrt{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2} \cos(\omega t + \beta - 90\degree),\quad \phi = 90\degree - \beta
+\end{align*}
+
+Ahora tenemos la siguiente relaciones:
+
+\begin{align*}
+  I_M &= I_0 \sqrt{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2} = \frac{V_0}{\sqrt{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2}}\\
+  i_i(t) &= \frac{V_0}{\sqrt{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2}} \cos\left(\omega t + 90\degree - \tan{^{-1}}\left(\frac{R}{\frac{1}{\omega C} - \omega L}\right)\right)
+\end{align*}
+
+\subsection*{$P_{Prom}$  en R}
+
+\begin{align*}
+  P_{Prom} &= i_i^2(t) \cdot R = \frac{V_0^2 R}{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2} \cos{^2}\left(\omega t + 90\degree - \tan{^{-1}}\left(\frac{R}{\frac{1}{\omega C} - \omega L}\right)\right) \\
+  P_{Prom} &= \frac{V_0^2 R}{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2} + \left[\frac{1}{2} + \frac{1}{2}\cos\left(\omega t + 90\degree - \tan{^{-1}}\left(\frac{R}{\frac{1}{\omega C} - \omega L}\right)\right)\right] \\
+  P_{Prom} &= \frac{V_0^2 R}{2\left( R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2\right)}
+\end{align*}
+
+\subsection*{$P_{Prom}$ en Fuente}
+
+\begin{align*}
+  P_{Prom} &= \frac{V_0 I_M}{2} \cos(\theta)\\
+  P_{Prom} &= \frac{V_0^2 \cos(\theta)}{2\left( R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2\right)}\\
+  P_{Prom} &= \frac{V_0^2 R}{2\sqrt{R^2 + \left(\frac{1}{\omega C} - \omega L\right)^2}}
+\end{align*}
+
+
+\chapter{Forma Cartesiana, Polar, Exponencial y Fasorial}
+
+
+\section*{Forma Cartesiana(Rectangular)}
+\begin{equation*}
+  C = a + j b
+\end{equation*}
+Donde $C$ es un número complejo, $a$ es la parte real y $b$ la parte imaginaria,
+notese que $j$ corresponde a $\sqrt{-1}$.
+
+\section*{Forma Polar}
+\begin{equation*}
+  C = r\left[cos(\theta) + j\sen(\theta)\right]
+\end{equation*}
+\begin{equation*}
+  r = \sqrt{a^2 + b^2}
+\end{equation*}
+\begin{equation*}
+  \theta = \tan{^1}\left(\frac{b}{a}\right)
+\end{equation*}
+
+\section*{Forma Exponencial}
+\begin{equation*}
+  C = r e^{j\theta},\quad e^{j\theta} = cos(\theta) + j\sen(\theta)
+\end{equation*}
+
+\section*{Forma Fasorial}
+\begin{equation*}
+  C = r \angle \theta
+\end{equation*}
+
+\textbf{Nota}: El fasor es u número compuesto que representa la magnitud y la
+fase de un senoide. El termino fasor se utiliza en vez de vector porque el
+ángulo se basa en tiempo más espacio(se utilizan o analizan fuentes con misma
+frecuencia).
+
+\section{Algunas propiedades}
+Suma
+\begin{equation*}
+  z_1 + z_2 = (x_1 + x_2) + j(y_1 + y_2)
+\end{equation*}
+
+Resta
+\begin{equation*}
+  z_1 - z_2 = (x_1 - x_2) + j(y_1 - y_2)
+\end{equation*}
+
+Multiplicación
+\begin{equation*}
+  z_1 \times z_2 = (r_1 \times r_2) \angle (\phi_1 + \phi_2)
+\end{equation*}
+
+División
+\begin{equation*}
+  z_1 \times z_2 = \frac{r_1}{r_2} \angle (\phi_1 - \phi_2)
+\end{equation*}
+
+Inverso
+\begin{equation*}
+  \frac{1}{z} = \frac{1}{r} \angle (\phi)
+\end{equation*}
+
+Raiz Cuadrada
+\begin{equation*}
+  \sqrt{z} = \sqrt{r} \angle \frac{\phi}{2}
+\end{equation*}
+
+Conjugado Complejo
+\begin{equation*}
+  z^* = x-jy = r\angle -\phi = r e^{-j\phi}
+\end{equation*}
+
+Se cumple además que
+\begin{equation*}
+  C \cdot C^* = r^2
+\end{equation*}
+
+\section{Relaciones Fasoriales de elementos de circuitos}
+
+\subsection*{Resistencia}
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to [open, v^<=$v_i(t)$, american voltages] (0,3)
+      to [short, *-, i=$i_R(t)$] (3,3)
+      to [R, l_=R, v^<=$v_R(t)$] (3,0)
+      to [short, -*] (0, 0);
+
+      \draw (6,0)
+      to [open, v^<=$\overline{V}$, american voltages] (6, 3)
+      to [short, *-, i=$\overline{I}$] (9,3)
+      to [R, l_=R, v^<=$\overline{V}_R$] (9,0)
+      to [short, -*] (6, 0);
+    \end{circuitikz}
+  \end{center}
+  \caption{Diagrama de resistencia en dominio del tiempo y dominio de la frecuencia}
+\end{figure}
+
+\subsection*{Inductor}
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to [open, v^<=$v_i(t)$, american voltages] (0,3)
+      to [short, *-, i=$i_L(t)$] (3,3)
+      to [L, l_=$L$, v^<=$v_L(t)$] (3,0)
+      to [short, -*] (0, 0);
+
+      \draw (6,0)
+      to [open, v^<=$\overline{V}$, american voltages] (6, 3)
+      to [short, *-, i=$\overline{I}$] (9,3)
+      to [L, l_=$L$, v^<=$\overline{V}_L$] (9,0)
+      to [short, -*] (6, 0);
+    \end{circuitikz}
+  \end{center}
+  \caption{Diagrama de inductor en dominio del tiempo y dominio de la frecuencia}
+\end{figure}
+
+\subsection*{Capacitor}
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to [open, v^<=$v_i(t)$, american voltages] (0,3)
+      to [short, *-, i=$i_C(t)$] (3,3)
+      to [C, l_=C, v^<=$v_C(t)$] (3,0)
+      to [short, -*] (0, 0);
+
+      \draw (6,0)
+      to [open, v^<=$\overline{V}$, american voltages] (6, 3)
+      to [short, *-, i=$\overline{I}$] (9,3)
+      to [C, l_=C, v^<=$\overline{V}_C$] (9,0)
+      to [short, -*] (6, 0);
+    \end{circuitikz}
+  \end{center}
+  \caption{Diagrama de capacitor en dominio del tiempo y dominio de la frecuencia}
+\end{figure}
+
+\subsection*{Resumen}
+
+\begin{tabular}{c | c | c}
+  Elemento & Dpminio del tiempo & Dominio de la frecuencia\\
+  R & $v(t)=Ri(t)$ & $\overline{V} = \overline{I}R$\\
+  L & $v(t)=L\frac{di(t)}{dt}$ & $\overline{V} = j\omega L\overline{I}$\\
+  C & $i(t)=C\frac{dv(t)}{dt}$ & $\overline{V} = \frac{\overline{I}}{j\omega C}$
+\end{tabular}
