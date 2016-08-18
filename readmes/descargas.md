@@ -3,10 +3,10 @@ se puede descargar al menos el pdf compilado y el código fuente de la versión.
 
 ### v0.2.x
 
-#### v0.1.5 - Corrección de formula Pprom = i^2(t) R
+#### v0.2.1 - Apuntes 2 (incompleto)
 _17-8-2016_
 
-Se corrige formula que estaba mal en la versión anterior.
+Faltan unas cuantas fórmulas y dibujos a la sección 2.2.
 
 ##### Descargas
 - [Apuntes-IE0309v0.2.1.pdf](https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.2.1/Apuntes-IE0309v0.2.1.pdf)
