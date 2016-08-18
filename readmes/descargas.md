@@ -5,6 +5,7 @@ se puede descargar al menos el pdf compilado y el código fuente de la versión.
 
 #### v0.1.5 - Corrección de formula Pprom = i^2(t) R
 _17-8-2016_
+
 Se corrige formula que estaba mal en la versión anterior.
 
 ##### Descargas
@@ -19,6 +20,7 @@ Se corrige formula que estaba mal en la versión anterior.
 
 #### v0.1.5 - Corrección de formula Pprom = i^2(t) R
 _17-8-2016_
+
 Se corrige formula que estaba mal en la versión anterior.
 
 ##### Descargas
