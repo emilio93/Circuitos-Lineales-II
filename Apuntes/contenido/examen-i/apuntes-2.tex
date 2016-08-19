@@ -206,6 +206,32 @@ Se cumple además que
   \caption{Diagrama de resistencia en dominio del tiempo y dominio de la frecuencia}
 \end{figure}
 
+\begin{tikzpicture}
+  \begin{axis}[
+    axis x line=center,
+    axis y line=center,
+    xlabel={$\mathrm{Re}$},
+    ylabel={$\mathrm{Im}$},
+    xtick={0, 1},
+    xticklabels={$$, $$},
+    ytick={-1, 1},
+    yticklabels={$$,$$},
+    xlabel style={below right},
+    ylabel style={above left},
+    xmin=-0.2,
+    xmax=1.2,
+    ymin=-0.2,
+    ymax=1.2,
+    smooth]
+    \addplot[domain=0:1, mark=none, color=blue]
+    {x} node[above, pos=0.5] {$\overline{V}$};
+    \addplot[domain=0:0.5, mark=none, color=black, thick]
+    {x} node[below, pos=0.5] {$\overline{I}$};
+  \end{axis}
+  \label{img_fasor_r}
+\end{tikzpicture}
+
+
 \subsection*{Inductor}
 
 \begin{figure}[H]
@@ -227,8 +253,32 @@ Se cumple además que
   \caption{Diagrama de inductor en dominio del tiempo y dominio de la frecuencia}
 \end{figure}
 
-\subsection*{Capacitor}
+\begin{tikzpicture}
+  \begin{axis}[
+    axis x line=center,
+    axis y line=center,
+    xlabel={$\mathrm{Re}$},
+    ylabel={$\mathrm{Im}$},
+    xtick={0, 1},
+    xticklabels={$$, $$},
+    ytick={-1, 1},
+    yticklabels={$$,$$},
+    xlabel style={below right},
+    ylabel style={above left},
+    xmin=-1.2,
+    xmax=1.2,
+    ymin=-0.2,
+    ymax=1.2,
+    smooth]
+    \addplot[domain=-1:0, mark=none, color=blue]
+    {-x} node[above, pos=0.5] {$\overline{V}$};
+    \addplot[domain=0:0.5, mark=none, color=black, thick]
+    {x} node[below, pos=0.5] {$\overline{I}$};
+  \end{axis}
+  \label{img_fasor_r}
+\end{tikzpicture}
 
+\subsection*{Capacitor}
 \begin{figure}[H]
   \begin{center}
     \begin{circuitikz}
@@ -248,10 +298,35 @@ Se cumple además que
   \caption{Diagrama de capacitor en dominio del tiempo y dominio de la frecuencia}
 \end{figure}
 
+\begin{tikzpicture}
+  \begin{axis}[
+    axis x line=center,
+    axis y line=center,
+    xlabel={$\mathrm{Re}$},
+    ylabel={$\mathrm{Im}$},
+    xtick={0, 1},
+    xticklabels={$$, $$},
+    ytick={-1, 1},
+    yticklabels={$$,$$},
+    xlabel style={below right},
+    ylabel style={above left},
+    xmin=-1.2,
+    xmax=1.2,
+    ymin=-0.2,
+    ymax=1.2,
+    smooth]
+    \addplot[domain=0:1, mark=none, color=blue]
+    {x} node[above, pos=0.5] {$\overline{V}$};
+    \addplot[domain=-0.5:0, mark=none, color=black, thick]
+    {-x} node[below, pos=0.5] {$\overline{I}$};
+  \end{axis}
+  \label{img_fasor_r}
+\end{tikzpicture}
+
 \subsection*{Resumen}
 
 \begin{tabular}{c | c | c}
-  Elemento & Dpminio del tiempo & Dominio de la frecuencia\\
+  Elemento & Dominio del tiempo & Dominio de la frecuencia\\
   R & $v(t)=Ri(t)$ & $\overline{V} = \overline{I}R$\\
   L & $v(t)=L\frac{di(t)}{dt}$ & $\overline{V} = j\omega L\overline{I}$\\
   C & $i(t)=C\frac{dv(t)}{dt}$ & $\overline{V} = \frac{\overline{I}}{j\omega C}$
