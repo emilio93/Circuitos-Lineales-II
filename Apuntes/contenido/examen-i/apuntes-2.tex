@@ -279,7 +279,7 @@ Se cumple además que
 \end{tikzpicture}
 
 \subsection*{Capacitor}
-\begin{figure}[H]
+\begin{figure}
   \begin{center}
     \begin{circuitikz}
       \draw (0,0)
@@ -326,8 +326,11 @@ Se cumple además que
 \subsection*{Resumen}
 
 \begin{tabular}{c | c | c}
-  Elemento & Dominio del tiempo & Dominio de la frecuencia\\
+  Elemento & Dominio del tiempo & Dominio de la frecuencia\\ \hline
+  & & \\
   R & $v(t)=Ri(t)$ & $\overline{V} = \overline{I}R$\\
+  & & \\
   L & $v(t)=L\frac{di(t)}{dt}$ & $\overline{V} = j\omega L\overline{I}$\\
+  & & \\
   C & $i(t)=C\frac{dv(t)}{dt}$ & $\overline{V} = \frac{\overline{I}}{j\omega C}$
 \end{tabular}
