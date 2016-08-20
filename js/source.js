@@ -1,7 +1,67 @@
 $(document).ready(function() {
-  showPage();
 
-  $(window).resize(showNav);
+  // Update page content.
+  showPage();
+  $(window).on('hashchange',function(){
+    showPage(window.location.hash.substr(1));
+  });
+
+  // Update nav to hidden on resize.
+  $(window).resize(function() {
+    if ($(window).width() <= 992) {
+      hideNav();
+    } else {
+      showNav();
+    }
+  });
+
+  // Show nav on swipe.
+  $(document).touchwipe({
+     wipeLeft: hideNav,
+     wipeRight: showNav,
+     wipeUp: function() {},
+     wipeDown: function() {},
+     min_move_x: 40,
+     min_move_y: 20,
+     preventDefaultEvents: false
+  });
+
+   // Hide Menu on option tap, click, ...
+  $('a, nav button').click(function() {
+    $(this).blur();
+    hideNav();
+  });
+
+  // Update hash to reload page.
+  $('nav button').click(function() {
+    $(this).blur();
+    window.location.hash = $(this).attr('data-href');
+    hideNav();
+  })
+
+  // Open/close nav.
+  $('button.nav-button').on('click', function() {
+    var left = '-100%';
+    if ($('nav').css('left') !== '0px') {
+      left = '0px';
+      $('footer').show(100);
+    } else {
+      $('footer').hide(100);
+    }
+    $('nav').animate({
+      left: left
+    }, 100);
+    $(this).blur();
+  }).on('touchend tap', function(e) {
+    $(this).blur();
+  });
+
+  // update content.
+  $('nav>ul>a').click(function(){
+    setTimeout(function() {
+      showPage(window.location.hash.substr(1));
+    }, 1);
+  });
 
   function hideNav() {
     if ($(window).width() <= 992) {
@@ -10,6 +70,10 @@ $(document).ready(function() {
       }, 100);
       $('footer').hide(100);
     }
+  }
+
+  function isNavOpen() {
+    return $('nav').css('left') == '0px';
   }
 
   function showNav() {
@@ -30,53 +94,6 @@ $(document).ready(function() {
     }
   }
 
-  $(document).touchwipe({
-     wipeLeft: hideNav,
-     wipeRight: showNav,
-     wipeUp: function() {},
-     wipeDown: function() {},
-     min_move_x: 40,
-     min_move_y: 20,
-     preventDefaultEvents: false
-});
-
-  $('a, nav button').click(function() {
-    $(this).blur();
-    hideNav();
-  });
-
-  $('nav button').click(function() {
-    $(this).blur();
-    window.location.hash = $(this).attr('data-href');
-    hideNav();
-  })
-
-  $('button.nav-button').on('click', function() {
-    var left = '-100%';
-    if ($('nav').css('left') !== '0px') {
-      left = '0px';
-      $('footer').show(100);
-    } else {
-      $('footer').hide(100);
-    }
-    $('nav').animate({
-      left: left
-    }, 100);
-    $(this).blur();
-  }).on('touchend tap', function(e) {
-    $(this).blur();
-  });
-
-  $('nav>ul>a').click(function(){
-    setTimeout(function() {
-      showPage(window.location.hash.substr(1));
-    }, 1);
-  });
-
-  $(window).on('hashchange',function(){
-    showPage(window.location.hash.substr(1));
-  });
-
   function loadHome() {
     loadFile('readmes/inicio.md', 'Circuitos Lineales II');
   };
@@ -92,6 +109,7 @@ $(document).ready(function() {
         var html = '<h2>Descargas</h2>\n<div class="scroll-holder">\n<div>\n';
         for(var i = 0; i < releases.length; i++) {
           html += '<h3>' + releases[i].version  + '</h3>\n';
+          html += '<em>' + releases[i].date  + '</em>\n';
           html += '<p>' + releases[i].notas  + '</p>\n';
           html += '<h4>Descargas</h4>\n<ul>\n';
           for (var j = 0; j < releases[i].descargas.length; j++) {
@@ -155,5 +173,4 @@ $(document).ready(function() {
       $('nav button.licencia').addClass('active').addClass('disabled');
     }
   }
-
 });
