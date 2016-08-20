@@ -1,0 +1,46 @@
+[
+  {
+    "version":"v0.2.2",
+    "date":"18-8-2016",
+    "notas": "Se agregan gráficas faltantes",
+    "descargas": [
+      {"nombre":"Apuntes-IE0309v0.2.2.pdf", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.2.2/Apuntes-IE0309v0.2.2.pdf"},
+      {"nombre":"Código Fuente(.zip)", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.2.2/Apuntes-IE0309v0.2.2.pdf"},
+      {"nombre":"Código Fuente(.tar.gz)", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.2.2/Apuntes-IE0309v0.2.2.pdf"}
+    ],
+    "github": "https://github.com/emilio93/Circuitos-Lineales-II/releases/tag/v0.2.2"
+  },
+  {
+    "version":"v0.2.1",
+    "date":"17-8-2016",
+    "notas": "Faltan unas cuantas fórmulas y dibujos a la sección 2.2.",
+    "descargas": [
+      {"nombre":"Apuntes-IE0309v0.2.1.pdf", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.2.1/Apuntes-IE0309v0.2.1.pdf"},
+      {"nombre":"Código Fuente(.zip)", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.2.1/Apuntes-IE0309v0.2.1.pdf"},
+      {"nombre":"Código Fuente(.tar.gz)", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.2.1/Apuntes-IE0309v0.2.1.pdf"}
+    ],
+    "github": "https://github.com/emilio93/Circuitos-Lineales-II/releases/tag/v0.2.1"
+  },
+  {
+    "version":"v0.1.5",
+    "date":"17-8-2016",
+    "notas": "Se corrige formula que estaba mal en la versión anterior.",
+    "descargas": [
+      {"nombre":"Apuntes-IE0309v0.1.5.pdf", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.1.5/Apuntes-IE0309v0.1.5.pdf"},
+      {"nombre":"Código Fuente(.zip)", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.1.5/Apuntes-IE0309v0.1.5.pdf"},
+      {"nombre":"Código Fuente(.tar.gz)", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.1.5/Apuntes-IE0309v0.1.5.pdf"}
+    ],
+    "github": "https://github.com/emilio93/Circuitos-Lineales-II/releases/tag/v0.1.5"
+  },
+  {
+    "version":"v0.1.4",
+    "date":"14-8-2016",
+    "notas": "Esta es la versión para los apuntes 1. No está revisada por ningún profesor.",
+    "descargas": [
+      {"nombre":"Apuntes-IE0309v0.1.4.pdf", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.1.4/Apuntes-IE0309v0.1.4.pdf"},
+      {"nombre":"Código Fuente(.zip)", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.1.4/Apuntes-IE0309v0.1.4.pdf"},
+      {"nombre":"Código Fuente(.tar.gz)", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.1.4/Apuntes-IE0309v0.1.4.pdf"}
+    ],
+    "github": "https://github.com/emilio93/Circuitos-Lineales-II/releases/tag/v0.1.4"
+  }
+]

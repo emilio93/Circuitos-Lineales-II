@@ -70,7 +70,28 @@ $(document).ready(function() {
   };
 
   function loadDownloads() {
-    loadFile('readmes/descargas.md', 'Descargas');
+    loadFile('readmes/descargas.md', 'Descargas', function (data) {
+      $.ajax('readmes/releases.json', {})
+      .then(function(releases) {
+        var html = '<h2>Descargas</h2>\n<div class="scroll-holder">\n<div>\n';
+        for(var i = 0; i < releases.length; i++) {
+          html += '<h3>' + releases[i].version  + '</h3>\n';
+          html += '<p>' + releases[i].notas  + '</p>\n';
+          html += '<h4>Descargas</h4>\n<ul>\n';
+          for (var j = 0; j < releases[i].descargas.length; j++) {
+            html += '<li><a href="' + releases[i].descargas[j].url + '">' + releases[i].descargas[j].nombre + '</a></li>\n';
+          }
+          html += '</ul>\n';
+          html += '<a href="' + releases[i].github + '">Release en Github</a>\n<hr>\n';
+        }
+        html += '</div>\n</div>\n';
+        console.log(html);
+        $('#contenido > div > div')
+        .hide()
+        .html(html)
+        .fadeIn(200);
+      });
+    });
   };
 
   function loadLicense() {

@@ -1,5 +1,5 @@
 Los apuntes de la materia se transcriben en formato LaTeX, para más información
-acerca del código, ver el [repositoro](https://github.com/emilio93/Circuitos-Lineales-II).
+acerca del código, ver el [repositorio](https://github.com/emilio93/Circuitos-Lineales-II).
 
 ### Descargas
 Para descargar las versiones dirigirse a la página de [descargas](#descargas).
@@ -18,7 +18,7 @@ embargo, nuevas versiones y releases pueden salir para corregir errores.
 ### Correcciones y Sugerencias
 Agradezco que se me indique cualquier error en el texto así como sugerencias de
 cualquier tipo. Para realizar estas anotaciones, por favor realizarlas en la
-página de [problemas del repositorio](https://github.com/emilio93/Circuitos-Lineales-II/issues).
+página de [issues](https://github.com/emilio93/Circuitos-Lineales-II/issues).
 
 ### Colaborciones
 Ciertamente la transcripción de los apuntes es una tarea larga y algo compleja,
@@ -27,7 +27,7 @@ contenidos del curso.
 
 Debido a la automatización de la compilación, requiero que las colaboraciones se
 hagan con las facilidades que ofrece git y github. En caso de no manejar estas
-plataformas abra un issue([problemas del repositorio](https://github.com/emilio93/Circuitos-Lineales-II/issues))
+plataformas abra un ([issue](https://github.com/emilio93/Circuitos-Lineales-II/issues))
 para solicitar ayuda.
 
 Para cualquier colaboración porfavor hacer un Pull Request detallado con los

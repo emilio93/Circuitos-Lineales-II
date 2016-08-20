@@ -5,7 +5,7 @@ header {
   top: 0;
   height: 100px;
   .responsive(@maxwidth, {
-    height: 60px;
+    height: 30px;
   });
 
   .container {
@@ -67,6 +67,7 @@ header {
           color: @light;
           border-bottom: solid 1px @light75-tr;
           font-size: 20px;
+          height: 40px;
           width: 100%;
         });
       }
@@ -75,6 +76,8 @@ header {
         text-decoration: none;
         padding: 3px 8px 3px 8px;
         .responsive(@maxwidth, {
+          padding-top: 5px;
+          padding-bottom: 6px;
         })
       }
       button:hover, button:focus {
