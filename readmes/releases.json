@@ -4,9 +4,9 @@
     "date":"19-8-2016",
     "notas": "Se cambia paginas de portada y toc, se agranda tabla de resumen en apuntes 2.",
     "descargas": [
-      {"nombre":"Apuntes-IE0309v0.2.3.pdf", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.2.3/Apuntes-IE0309v0.2.2.pdf"},
-      {"nombre":"Código Fuente(.zip)", "url":"https://github.com/emilio93/Circuitos-Lineales-II/archive/v0.1.4.zip"},
-      {"nombre":"Código Fuente(.tar.gz)", "url":"https://github.com/emilio93/Circuitos-Lineales-II/archive/v0.1.4.zipf"}
+      {"nombre":"Apuntes-IE0309v0.2.3.pdf", "url":"https://github.com/emilio93/Circuitos-Lineales-II/releases/download/v0.2.3/Apuntes-IE0309v0.2.3.pdf"},
+      {"nombre":"Código Fuente(.zip)", "url":"https://github.com/emilio93/Circuitos-Lineales-II/archive/v0.2.3.zip"},
+      {"nombre":"Código Fuente(.tar.gz)", "url":"https://github.com/emilio93/Circuitos-Lineales-II/archive/v0.2.3.zipf"}
     ],
     "github": "https://github.com/emilio93/Circuitos-Lineales-II/releases/tag/v0.2.2"
   },
