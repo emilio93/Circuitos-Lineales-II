@@ -1,7 +1,24 @@
 $(document).ready(function() {
   showPage();
 
-  $(window).resize(function(){
+  $(window).resize(showNav);
+
+  function hideNav() {
+    if ($(window).width() <= 992) {
+      $('nav').animate({
+        left: '-100%'
+      }, 100);
+      $('footer').hide(100);
+    }
+  }
+
+  function showNav() {
+    if ($(window).width() <= 992) {
+      $('nav').animate({
+        left: '0px'
+      }, 100);
+      $('footer').hide(100);
+    }
     if ($(window).width() > 992) {
       $('nav').css({
         left: '',
@@ -11,27 +28,27 @@ $(document).ready(function() {
     } else {
       $('footer').hide(100);
     }
-  });
+  }
+
+  $(document).touchwipe({
+     wipeLeft: hideNav,
+     wipeRight: showNav,
+     wipeUp: function() {},
+     wipeDown: function() {},
+     min_move_x: 40,
+     min_move_y: 20,
+     preventDefaultEvents: false
+});
 
   $('a, nav button').click(function() {
     $(this).blur();
-    if ($(window).width() <= 992) {
-      $('nav').animate({
-        left: '-100%'
-      }, 100);
-      $('footer').hide(100);
-    }
+    hideNav();
   });
 
   $('nav button').click(function() {
     $(this).blur();
     window.location.hash = $(this).attr('data-href');
-    if ($(window).width() <= 992) {
-      $('nav').animate({
-        left: '-100%'
-      }, 100);
-      $('footer').hide(100);
-    }
+    hideNav();
   })
 
   $('button.nav-button').on('click', function() {
@@ -47,7 +64,6 @@ $(document).ready(function() {
     }, 100);
     $(this).blur();
   }).on('touchend tap', function(e) {
-    console.log('tap');
     $(this).blur();
   });
 
@@ -85,7 +101,6 @@ $(document).ready(function() {
           html += '<a href="' + releases[i].github + '">Release en Github</a>\n<hr>\n';
         }
         html += '</div>\n</div>\n';
-        console.log(html);
         $('#contenido > div > div')
         .hide()
         .html(html)
