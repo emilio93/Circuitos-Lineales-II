@@ -17,7 +17,7 @@
     "pump": "^1.0.1"
   },
   "scripts": {
-    "test": "echo \"No test specified\" && exit 1"
+    "start": "gulp all & node server"
   },
   "author": "Emilio Rojas",
   "license": "Apache-2.0"
