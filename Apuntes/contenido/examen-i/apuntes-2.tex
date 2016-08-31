@@ -223,9 +223,9 @@ Se cumple además que
     ymin=-0.2,
     ymax=1.2,
     smooth]
-    \addplot[domain=0:1, mark=none, color=blue]
+    \addplot[->, domain=0:1, mark=none, color=blue]
     {x} node[above, pos=0.5] {$\overline{V}$};
-    \addplot[domain=0:0.5, mark=none, color=black, thick]
+    \addplot[->, domain=0:0.5, mark=none, color=black, thick]
     {x} node[below, pos=0.5] {$\overline{I}$};
   \end{axis}
   \label{img_fasor_r}
@@ -270,9 +270,9 @@ Se cumple además que
     ymin=-0.2,
     ymax=1.2,
     smooth]
-    \addplot[domain=-1:0, mark=none, color=blue]
+    \addplot[<-, domain=-1:0, mark=none, color=blue]
     {-x} node[above, pos=0.5] {$\overline{V}$};
-    \addplot[domain=0:0.5, mark=none, color=black, thick]
+    \addplot[->, domain=0:0.5, mark=none, color=black, thick]
     {x} node[below, pos=0.5] {$\overline{I}$};
   \end{axis}
   \label{img_fasor_r}
@@ -302,6 +302,7 @@ Se cumple además que
   \begin{axis}[
     axis x line=center,
     axis y line=center,
+    axis line style={->},
     xlabel={$\mathrm{Re}$},
     ylabel={$\mathrm{Im}$},
     xtick={0, 1},
@@ -315,9 +316,10 @@ Se cumple además que
     ymin=-0.2,
     ymax=1.2,
     smooth]
-    \addplot[domain=0:1, mark=none, color=blue]
+
+    \addplot[->, domain=0:1, mark=none, color=blue]
     {x} node[above, pos=0.5] {$\overline{V}$};
-    \addplot[domain=-0.5:0, mark=none, color=black, thick]
+    \addplot[<-, domain=-0.5:0, mark=none, color=black, thick]
     {-x} node[below, pos=0.5] {$\overline{I}$};
   \end{axis}
   \label{img_fasor_r}
