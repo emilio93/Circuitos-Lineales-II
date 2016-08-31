@@ -11,7 +11,7 @@ Para facilitar el desarrollo, se utiliza un servidor local para archivos
 estáticos, y se observan las fuentes de los css's y los js's.
 
 ### Descargar Dependencias
-Las dependencias son necesarias para [iniciar el servidor][#iniciar-servidor] y
+Las dependencias son necesarias para [iniciar el servidor](#iniciar-servidor) y
 para [observar las fuentes](#observar-fuentes).
 ```
 > npm install
