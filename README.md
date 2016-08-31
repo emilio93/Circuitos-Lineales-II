@@ -24,7 +24,7 @@ para [observar las fuentes](#observar-fuentes).
 
 ### Iniciar Servidor
 ```
-> node server.js
+> npm start
 ```
 
 ### Observar fuentes
