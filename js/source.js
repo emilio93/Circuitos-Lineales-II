@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
-  // Update page content.
+  // Display content on load.
   showPage();
+
+  // Update page content on hash change.
   $(window).on('hashchange',function(){
     showPage(window.location.hash.substr(1));
   });
@@ -94,6 +96,19 @@ $(document).ready(function() {
     }
   }
 
+  function formatDate(date) {
+    var d = new Date(date);
+    return d.getDate() + '-' + (d.getMonth() + 1) + '-' + d.getFullYear();
+  }
+
+  function formatSize(byteCount) {
+    var units = byteCount < 1024? 'B': byteCount < 1024*1024? 'kB': 'MB';
+    var count = byteCount < 1024? byteCount:
+                byteCount < 1024*1024? byteCount/1024: byteCount/1024/1024;
+    count = Math.round(count);
+    return count + units;
+  }
+
   function loadHome() {
     loadFile('readmes/inicio.md', 'Circuitos Lineales II');
   };
@@ -103,29 +118,33 @@ $(document).ready(function() {
   };
 
   function loadDownloads() {
-    loadFile('readmes/descargas.md', 'Descargas', function (data) {
-      $.ajax('readmes/releases.json', {})
-      .then(function(releases) {
-        var html = '<h2>Descargas</h2>\n<div class="scroll-holder">\n<div>\n';
-        for(var i = 0; i < releases.length; i++) {
-          html += '<h3>' + releases[i].version  + '</h3>\n';
-          html += '<em>' + releases[i].date  + '</em>\n';
-          html += '<p>' + releases[i].notas  + '</p>\n';
-          html += '<h4>Descargas</h4>\n<ul>\n';
-          for (var j = 0; j < releases[i].descargas.length; j++) {
-            html += '<li><a href="' + releases[i].descargas[j].url + '">' + releases[i].descargas[j].nombre + '</a></li>\n';
-          }
-          html += '</ul>\n';
-          html += '<a href="' + releases[i].github + '">Release en Github</a>\n<hr>\n';
+    var html = '<h2>Descargas</h2>\n<div class="scroll-holder">\n<div>\n';
+    $.ajax('https://api.github.com/repos/emilio93/Circuitos-Lineales-II/releases', {})
+    .then(function(releases) {
+      for (var i = 0; i < releases.length && !releases[i].draft; i++) {
+        html += '<h3>' + releases[i].tag_name + ' - ' + releases[i].name + '</h3>\n';
+        html += '<em>' + formatDate(releases[i].published_at) + '</em>\n';
+        html += '<p>' + releases[i].body + '</p>\n';
+        html += '<h4>Descargas</h4>\n<ul>\n';
+        for (var j = 0; j < releases[i].assets.length; j++) {
+          var asset = releases[i].assets[j];
+          html += '<li>';
+          html += '<a href="' + releases[i].assets[j].browser_download_url + '">';
+          html += releases[i].assets[j].name + '(' + formatSize(releases[i].assets[j].size) + ')';
+          html += '</a></li>\n';
         }
-        html += '</div>\n</div>\n';
-        $('#contenido > div > div')
-        .hide()
-        .html(html)
-        .fadeIn(200);
-      });
+        html += '<li><a href="' + releases[i].zipball_url + '">Código Fuente(.zip)</a></li>\n';
+        html += '<li><a href="' + releases[i].tarball_url + '">Código Fuente(.tar.gz)</a></li>\n';
+        html += '</ul>\n';
+        html += '<a href="' + releases[i].html_url + '">Ver en Github</a>\n<hr>\n';
+      }
+      html += '</div>\n</div>\n';
+      $('#contenido > div > div')
+      .hide()
+      .html(html)
+      .fadeIn(200);
     });
-  };
+  }
 
   function loadLicense() {
     loadFile('LICENSE', 'Licencia', function(data) {
