@@ -21,4 +21,4 @@ var port = 3000;
 
 app.use(express.static(path.join(__dirname, 'debug')));
 
-app.listen(port, () => {console.log('Listening on ' + port);});
+app.listen(port, () => {console.log(`Listening on ${port}`);});
