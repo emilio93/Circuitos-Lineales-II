@@ -33,7 +33,7 @@ rm -r build/* 2> /dev/null
 echo "Setting up document references..."
 
 pdflatex -output-directory=build -interaction=nonstopmode main > /dev/null
-pdflatex -output-directory=build -interaction=nonstopmode -file-line-error main
+pdflatex -output-directory=build -file-line-error main
 
 cd ..
 pwd

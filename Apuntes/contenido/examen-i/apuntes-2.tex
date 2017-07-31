@@ -107,40 +107,45 @@ Ahora tenemos la siguiente relaciones:
 
 
 \chapter{Forma Cartesiana, Polar, Exponencial y Fasorial}
+\begin{multicols}{2}
+  \section*{Forma Cartesiana\small{(Rectangular)}}
+  \begin{equation*}
+    C = a + j b
+  \end{equation*}
+  Donde $C$ es un número complejo, $a$ es la parte real y $b$ la parte imaginaria,
+  notese que $j^2$ corresponde a $-1$.
 
+  \columnbreak
 
-\section*{Forma Cartesiana(Rectangular)}
-\begin{equation*}
-  C = a + j b
-\end{equation*}
-Donde $C$ es un número complejo, $a$ es la parte real y $b$ la parte imaginaria,
-notese que $j$ corresponde a $\sqrt{-1}$.
+  \section*{Forma Exponencial}
+  \begin{equation*}
+    C = r e^{j\theta},\quad e^{j\theta} = cos(\theta) + j\sen(\theta)
+  \end{equation*}
+\end{multicols}
 
-\section*{Forma Polar}
-\begin{equation*}
-  C = r\left[cos(\theta) + j\sen(\theta)\right]
-\end{equation*}
-\begin{equation*}
-  r = \sqrt{a^2 + b^2}
-\end{equation*}
-\begin{equation*}
-  \theta = \tan{^1}\left(\frac{b}{a}\right)
-\end{equation*}
+\begin{multicols}{2}
+  \section*{Forma Polar}
+  \begin{equation*}
+    C = r\left[cos(\theta) + j\sen(\theta)\right]
+  \end{equation*}
+  \begin{equation*}
+    r = \sqrt{a^2 + b^2}
+  \end{equation*}
+  \begin{equation*}
+    \theta = \tan{^1}\left(\frac{b}{a}\right)
+  \end{equation*}
 
-\section*{Forma Exponencial}
-\begin{equation*}
-  C = r e^{j\theta},\quad e^{j\theta} = cos(\theta) + j\sen(\theta)
-\end{equation*}
+  \columnbreak
 
-\section*{Forma Fasorial}
-\begin{equation*}
-  C = r \angle \theta
-\end{equation*}
-
-\textbf{Nota}: El fasor es u número compuesto que representa la magnitud y la
-fase de un senoide. El termino fasor se utiliza en vez de vector porque el
-ángulo se basa en tiempo más espacio(se utilizan o analizan fuentes con misma
-frecuencia).
+  \section*{Forma Fasorial}
+  \begin{equation*}
+    C = r \angle \theta
+  \end{equation*}
+  El fasor es un número compuesto que representa la magnitud y la
+  fase de un senoide. El termino fasor se utiliza en vez de vector porque el
+  ángulo se basa en tiempo más espacio(se utilizan o analizan fuentes con misma
+  frecuencia).
+\end{multicols}
 
 \section{Algunas propiedades}
 Suma
@@ -188,21 +193,19 @@ Se cumple además que
 \subsection*{Resistencia}
 
 \begin{figure}[H]
-  \begin{center}
-    \begin{circuitikz}
-      \draw (0,0)
-      to [open, v^<=$v_i(t)$, american voltages] (0,3)
-      to [short, *-, i=$i_R(t)$] (3,3)
-      to [R, l_=R, v^<=$v_R(t)$] (3,0)
-      to [short, -*] (0, 0);
-
-      \draw (6,0)
-      to [open, v^<=$\overline{V}$, american voltages] (6, 3)
-      to [short, *-, i=$\overline{I}$] (9,3)
-      to [R, l_=R, v^<=$\overline{V}_R$] (9,0)
-      to [short, -*] (6, 0);
-    \end{circuitikz}
-  \end{center}
+  \centering
+  \begin{circuitikz}
+    \draw (0,0)
+    to [open, v^<=$v_i(t)$, american voltages] (0,3)
+    to [short, *-, i=$i_R(t)$] (3,3)
+    to [R, l_=R, v^<=$v_R(t)$] (3,0)
+    to [short, -*] (0, 0);
+    \draw (6,0)
+    to [open, v^<=$\overline{V}$, american voltages] (6, 3)
+    to [short, *-, i=$\overline{I}$] (9,3)
+    to [R, l_=R, v^<=$\overline{V}_R$] (9,0)
+    to [short, -*] (6, 0);
+  \end{circuitikz}
   \caption{Diagrama de resistencia en dominio del tiempo y dominio de la frecuencia}
 \end{figure}
 
@@ -326,13 +329,15 @@ Se cumple además que
 \end{tikzpicture}
 
 \subsection*{Resumen}
-
-\begin{tabular}{c | c | c}
-  Elemento & Dominio del tiempo & Dominio de la frecuencia\\ \hline
-  & & \\
-  R & $v(t)=Ri(t)$ & $\overline{V} = \overline{I}R$\\
-  & & \\
-  L & $v(t)=L\frac{di(t)}{dt}$ & $\overline{V} = j\omega L\overline{I}$\\
-  & & \\
-  C & $i(t)=C\frac{dv(t)}{dt}$ & $\overline{V} = \frac{\overline{I}}{j\omega C}$
-\end{tabular}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{c | c | c}
+    Elemento & Dominio del tiempo & Dominio de la frecuencia\\ \hline
+    & & \\
+    R & $v(t)=Ri(t)$ & $\overline{V} = \overline{I}R$\\
+    & & \\
+    L & $v(t)=L\frac{di(t)}{dt}$ & $\overline{V} = j\omega L\overline{I}$\\
+    & & \\
+    C & $i(t)=C\frac{dv(t)}{dt}$ & $\overline{V} = \frac{\overline{I}}{j\omega C}$
+  \end{tabular}
+\end{table}

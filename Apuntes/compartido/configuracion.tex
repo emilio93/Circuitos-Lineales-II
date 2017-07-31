@@ -12,6 +12,16 @@
 %   See the License for the specific language governing permissions and
 %   limitations under the License.
 
+% METADATA
+\hypersetup{pdftitle = {A Perfect Day}}
+\hypersetup{pdfauthor = {Emilio Rojas}}
+\hypersetup{pdftitle = {Apuntes de Circuitos Lineales II}}
+\hypersetup{pdfsubject = {Circuitos en corriente alterna}}
+\hypersetup{pdfkeywords = {circuitos, corriente, alterna}}
+\hypersetup{pdfproducer = {Latex}}
+\hypersetup{pdfcreator = {pdflatex}}
+
+% TIKZ LIBRARIES
 % allows to use < and > on tikz pictures when babel set to spanish
 % http://tex.stackexchange.com/questions/166772/problem-with-babel-and-tikz-using-draw
 \usetikzlibrary{babel}
@@ -22,25 +32,10 @@
 
 \setlength{\columnsep}{1cm}
 
-\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
-
-\geometry{
-a4paper,
-left=25.4mm,
-right=25.4mm,
-top=25.4mm,
-bottom=25.4mm,
-heightrounded,
-}
-
+% Simbolo exponente
 \sisetup{output-exponent-marker=\textsc{e}}
 \setlength{\jot}{10pt}
 
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{Apuntes Circuitos Lineales II}
-\rfoot{\thepage}
-\setlength{\headheight}{15pt}
 
-\title{Apuntes Circuitos Lineales II}
-\author{Emilio Rojas}
+
+% MEMOIR CONFIG

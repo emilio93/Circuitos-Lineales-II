@@ -12,7 +12,9 @@
 %   See the License for the specific language governing permissions and
 %   limitations under the License.
 
-\documentclass[12pt]{report}
+\documentclass[a4paper, 10pt, twoside]{memoir}
+
+\input{compartido/page-settings.tex}
 
 \input{compartido/packages.tex}
 
@@ -22,21 +24,20 @@
 
 \input{compartido/comandos.tex}
 
+\input{compartido/normal-style.tex}
+
+\input{compartido/chapter-style.tex}
+
+\newsubfloat{figure} % Allow subfloats in figure environment
+
 \begin{document}
-
-  \pagenumbering{gobble}
   \input{compartido/portada.tex}
+  \frontmatter
 
-  \pagenumbering{roman}
-  \setcounter{page}{2}
   \tableofcontents
-  \vspace*{\fill}
 
-  \noindent \href{http://www.emiliorojas.xyz/Circuitos-Lineales-II/}{Sitio del Proyecto} \\
-  \noindent \href{https://github.com/emilio93/Circuitos-Lineales-II}{Repositorio en Github}
-  \newpage
-
-  \pagenumbering{arabic}
+  \mainmatter
+  \pagestyle{normal}
   \setcounter{page}{3}
   \input{contenido/examen-i.tex}
 \end{document}

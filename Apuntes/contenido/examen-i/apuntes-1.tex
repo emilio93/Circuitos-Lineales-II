@@ -15,331 +15,316 @@
 \chapter{Temas Introductorios}
 
 \section{Desfase, Adelanto, Atraso}
-\begin{tikzpicture}
-  \begin{axis}[
-    axis x line=center,
-    axis y line=center,
-    xlabel={$t$},
-    ylabel={$f(t)$},
-    xtick={0, 1.5707963, 3.1415926, 4.7123889, 6.2831853},
-    xticklabels={0, $\frac{\pi}{2}$, $\pi$, $3\frac{\pi}{2}$, $2\pi$},
-    ytick={-1, 1},
-    yticklabels={$-V_0$,$V_0$},
-    xlabel style={below right},
-    ylabel style={above left},
-    xmin=-0.2,
-    xmax=7,
-    ymin=-1.4,
-    ymax=1.4,
-    xscale=2,
-    smooth]
-    \addplot[domain=0:2*pi, mark=none, color=blue]
-    {sin(deg(x))} node[above, pos=0.25] {$V_1 = V_0 \sin(t)$};
-    \addplot[domain=0:2*pi, mark=none, color=red]
-    {sin(deg(x+pi/2))} node[below, pos=0.5] {$V_2 = V_0 \sin(t+\phi)$};
-  \end{axis}
-  \label{img_desfase}
-\end{tikzpicture}
-
-Las señales están desfasadas.
-
-$V_2$ adelanta a $V_1$ en $\phi$.
-$V_1$ se atrasa de $V_2$ en $\phi$.
-
-Si $\phi=0\degree$ no hay desfase.
+  \begin{figure}[H]
+    \centering
+    \includegraphics{contenido/tikz/desfase.tikz}
+    \caption{Desfase de señales.}
+    \label{img_desfase}
+  \end{figure}
+  En la figura \ref{img_desfase} las señales están desfasadas.
+  \begin{itemize}
+    \item $V_2$ adelanta a $V_1$ en $\phi$.
+    \item $V_1$ se atrasa de $V_2$ en $\phi$.
+  \end{itemize}
+  Si $\phi=0\degree$, no hay desfase.
 
 \section{Identidades Trigonométricas}
-\begin{align}
-  \sin(A \pm B) &= \sin(A) \cdot \cos(B) \pm \cos(A) \cdot \sin(B) \label{id_trig1} \\
-  \cos(A \pm B) &= \cos(A) \cdot \cos(B) \mp \sin(A) \cdot \sin(B) \label{id_trig2}
-\end{align}
+  A lo largo del documento se utilizan las siguientes identidades trigonométricas:
+  \begin{multicols}{2}
+    \begin{align}
+      \sin(A \pm B) &= \sin(A) \cdot \cos(B) \pm \cos(A) \cdot \sin(B) \label{id_trig1}
+      \\
+      \cos(A \pm B) &= \cos(A) \cdot \cos(B) \mp \sin(A) \cdot \sin(B) \label{id_trig2}
+    \end{align}
 
-\begin{align}
-  \sin(A \pm 180\degree) &= -\sin(A) \label{id_trig3} \\
-  \cos(A \pm 180\degree) &= -\cos(A) \label{id_trig4} \\
-  \sin(A \pm 90\degree) &= \pm \sin(A) \label{id_trig5} \\
-  \cos(A \pm 90\degree) &= \mp \cos(A) \label{id_trig6}
-\end{align}
+    \begin{align}
+      \sin(A \pm 180\degree) &= -\sin(A) \label{id_trig3}
+      \\
+      \cos(A \pm 180\degree) &= -\cos(A) \label{id_trig4}
+      \\
+      \sin(A \pm 90\degree) &= \pm \sin(A) \label{id_trig5}
+      \\
+      \cos(A \pm 90\degree) &= \mp \cos(A) \label{id_trig6}
+    \end{align}
 
-\begin{align}
-  \cos^{2}(A) = \frac{1 + \cos(2 A)}{2} \label{id_trig7} \\
-  \sin^{2}(A) = \frac{1 - \cos(2 A)}{2} \label{id_trig8}
-\end{align}
+    \begin{align}
+      \cos^{2}(A) = \frac{1 + \cos(2 A)}{2} \label{id_trig7}
+      \\
+      \sin^{2}(A) = \frac{1 - \cos(2 A)}{2} \label{id_trig8}
+    \end{align}
 
-\begin{align}
-  \sin(2 A) = 2 \cos(A) \sin(A) \label{id_trig9}
-\end{align}
+    \begin{align}
+      \sin(2 A) = 2 \cos(A) \sin(A) \label{id_trig9}
+    \end{align}
+  \end{multicols}
 
 \section{Elementos Pasivos}
+  \begin{multicols}{2}
+    \subsection*{Resistencia}
+    \begin{figure}[H]
+      \centering
+      \begin{circuitikz}
+        \draw (0,0)
+        to [short, *-] (0.5, 0)
+        to [R, l^=R, v_<=$v_R(t)$, i^=$i_R(t)$] (3.5, 0)
+        to [short, -*] (4, 0);
+      \end{circuitikz}
+    \end{figure}
 
-\subsection*{Resistencia}
+    \begin{align}
+      v_R(t) &= R \cdot i_R(t) \label{v_r} \\
+      i_R(t) &= \frac{v_R(t)}{R} \label{i_r}
+    \end{align}
+  \end{multicols}
+  \noindent\rule{\textwidth}{0.4pt}
 
-\begin{figure}[H]
-  \begin{center}
-    \begin{circuitikz}
-      \draw (0,0)
-      to [short, *-] (0.5, 0)
-      to [R, l^=R, v_<=$v_R(t)$, i^=$i_R(t)$] (3.5, 0)
-      to [short, -*] (4, 0);
-    \end{circuitikz}
-  \end{center}
-\end{figure}
+  \begin{multicols}{2}
+    \subsection*{Inductor}
+    \begin{figure}[H]
+      \centering
+      \begin{circuitikz}
+        \draw (0,0)
+        to [short, *-] (0.5, 0)
+        to [L, l^=L, v_<=$v_L(t)$, i^=$i_L(t)$] (3.5, 0)
+        to [short, -*] (4, 0);
+      \end{circuitikz}
+    \end{figure}
 
-\begin{align}
-  v_R(t) &= R \cdot i_R(t) \label{v_r} \\
-  i_R(t) &= \frac{v_R(t)}{R} \label{i_r}
-\end{align}
+    \begin{align}
+      v_L(t) &= L \cdot \frac{di_L(t)}{dt}\label{v_l} \\
+      i_L(t) &= \frac{1}{L} \int v_L(t) dt \label{i_l}
+    \end{align}
+  \end{multicols}
+  \noindent\rule{\textwidth}{0.4pt}
 
-\subsection*{Inductor}
+  \begin{multicols}{2}
+    \subsection*{Capacitor}
+    \begin{figure}[H]
+      \centering
+      \begin{circuitikz}
+        \draw (0,0)
+        to [short, *-] (0.5, 0)
+        to [C, l^=C, v_<=$v_C(t)$, i^=$i_C(t)$] (3.5, 0)
+        to [short, -*] (4, 0);
+      \end{circuitikz}
+    \end{figure}
 
-\begin{figure}[H]
-  \begin{center}
-    \begin{circuitikz}
-      \draw (0,0)
-      to [short, *-] (0.5, 0)
-      to [L, l^=L, v_<=$v_L(t)$, i^=$i_L(t)$] (3.5, 0)
-      to [short, -*] (4, 0);
-    \end{circuitikz}
-  \end{center}
-\end{figure}
-
-\begin{align}
-  v_L(t) &= L \cdot \frac{di_L(t)}{dt}\label{v_l} \\
-  i_L(t) &= \frac{1}{L} \int v_L(t) dt \label{i_l}
-\end{align}
-
-\subsection*{Capacitor}
-
-\begin{figure}[H]
-  \begin{center}
-    \begin{circuitikz}
-      \draw (0,0)
-      to [short, *-] (0.5, 0)
-      to [C, l^=C, v_<=$v_C(t)$, i^=$i_C(t)$] (3.5, 0)
-      to [short, -*] (4, 0);
-    \end{circuitikz}
-  \end{center}
-\end{figure}
-
-\begin{align}
-  v_C(t) &= \frac{1}{C} \int i_C(t) dt \label{v_c} \\
-  i_C(t) &= C \cdot \frac{dv_C(t)}{dt} \label{i_c}
-\end{align}
+    \begin{align}
+      v_C(t) &= \frac{1}{C} \int i_C(t) dt \label{v_c} \\
+      i_C(t) &= C \cdot \frac{dv_C(t)}{dt} \label{i_c}
+    \end{align}
+  \end{multicols}
+  \noindent\rule{\textwidth}{0.4pt}
 
 \section{Potencia Promedio}
-
-\begin{align}
-  P(t) = i(t) \cdot v(t) = \frac{v^2(t)}{R} = i^2(t) \cdot R \label{pot} \\
-  P_{Prom} = \frac{1}{T} \int_T P(t) dt \label{pot_prom}
-\end{align}
+  \begin{align}
+    P(t) = i(t) \cdot v(t) = \frac{v^2(t)}{R} = i^2(t) \cdot R \label{pot} \\
+    P_{Prom} = \frac{1}{T} \int_T P(t) dt \label{pot_prom}
+  \end{align}
 
 \subsection{Resistencia}
+  \begin{wrapfigure}{l}{0.333\textwidth}
+      \centering
+      \begin{circuitikz}[yscale=2, xscale=1.2]
+        \draw (0,0)
+        to [sV, l=$v_i(t)$] (0,3)
+        to [short, i^=$i_R(t)$] (2,3)
+        to [R, l_=$R$, v^<=$v_R(t)$] (2, 0)
+        to [short] (0,0);
+      \end{circuitikz}
+  \end{wrapfigure}
 
-\begin{figure}[H]
+  Se define $v_i(t) = V_0 \cos(\omega t)$, se sabe $v_i(t) = v_R(t)$ y utilizando
+  \ref{i_r}:
+
+  \begin{equation*}
+    i_R(t) = \frac{V_0 \cos(\omega t)}{R}
+  \end{equation*}
+
+  Utilizando \ref{pot}:
+  \begin{equation*}
+    P_R(t) = \frac{V_0^2 \cos^{2}(\omega t)}{R}
+  \end{equation*}
+
+  Utilizando \ref{id_trig7}:
+  \begin{equation}
+    P_R(t) = \frac{V_0^2 + V_0^2 \cos(2 \omega t)}{2 R} \label{pot_r}
+  \end{equation}
+
+  Ahora con \ref{pot_prom}:
+  \begin{equation}
+    P_{Prom_{R}} = \frac{V_0^2}{2 R} \label{pot_prom_r}
+  \end{equation}
+
+  \subsection{Inductor}
+  \begin{wrapfigure}{l}{0.333\textwidth}
+      \centering
+      \begin{circuitikz}[yscale=2.1, xscale=1.2]
+        \draw (0,0)
+        to [sV, l=$v_i(t)$] (0,3)
+        to [short, i^=$i_L(t)$] (2,3)
+        to [L, l_=$L$, v^<=$v_L(t)$] (2, 0)
+        to [short] (0,0);
+      \end{circuitikz}
+  \end{wrapfigure}
+
+  Se define $v_i(t) = V_0 \cos(\omega t)$, se sabe $v_i(t) = v_L(t)$ y utilizando
+  \ref{i_l}:
+
+  \begin{equation*}
+    i_L(t) = \frac{V_0 \sin(\omega t)}{\omega L} = \frac{V_0 \cos(\omega t - 90 \degree)}{\omega L}
+  \end{equation*}
+
+  Utilizando \ref{pot}:
+  \begin{equation*}
+    P_L(t) = \frac{V_0^2 \sin(\omega t) \cos(\omega t)}{\omega L}
+  \end{equation*}
+
+  Utilizando \ref{id_trig9}:
+  \begin{equation}
+    P_L(t) = \frac{V_0^2 \sin(2 \omega t)}{2 \omega L} \label{pot_l}
+  \end{equation}
+
+  Ahora con \ref{pot_prom}:
+  \begin{equation}
+    P_{Prom_{L}} = 0 \label{pot_prom_l}
+  \end{equation}
+
+  \textbf{Nota:} El inductor adelanta la corriente $90 \degree$.
+
+  \newpage
+  \subsection{Capacitor}
+  \begin{wrapfigure}{l}{0.333\textwidth}
+      \centering
+      \begin{circuitikz}[yscale=2.1, xscale=1.2]
+          \draw (0,0)
+          to [sV, l=$v_i(t)$] (0,3)
+          to [short, i^=$i_C(t)$] (2,3)
+          to [C, l_=$C$, v^<=$v_C(t)$] (2, 0)
+          to [short] (0,0);
+        \end{circuitikz}
+  \end{wrapfigure}
+
+  Se define $v_i(t) = V_0 \cos(\omega t)$, se sabe $v_i(t) = v_C(t)$ y utilizando
+  \ref{i_c}:
+
+  \begin{equation*}
+    i_C(t) = - \omega C V_0 \sin(\omega t) = \omega C V_0 \cos(\omega t + 90 \degree)
+  \end{equation*}
+
+  Utilizando \ref{pot}:
+  \begin{equation*}
+    P_C(t) = - \omega C V_0^2 \sin(\omega t) \cos(\omega t)
+  \end{equation*}
+
+  Utilizando \ref{id_trig9}:
+  \begin{equation}
+  P_C(t) = - \frac{\omega C V_0^2 \sin(2 \omega t)}{2} \label{pot_c}
+  \end{equation}
+
+  Ahora con \ref{pot_prom}:
+  \begin{equation}
+    P_{Prom_{C}} = 0 \label{pot_prom_c}
+  \end{equation}
+
+  \textbf{Nota:} El capacitor atrasa la corriente $90 \degree$.
+
+  \subsection{Circuito RLC en paralelo}
+  \begin{figure}[H]
+    \begin{center}
+      \begin{circuitikz}
+        \draw (0,0)
+        to [sV, l=$v_i(t)$] (0,3)
+        to [short, i^=$i_i(t)$] (3,3)
+        to [short] (9,3)
+        to [C, l_=$C$, v^<=$v_C(t)$, i_=$i_C(t)$] (9, 0)
+        to [short] (0,0);
+        \draw (3,3)
+        to[R, l_=$R$, v^<=$v_R(t)$, i_=$i_R(t)$] (3,0);
+        \draw (6,3)
+        to[L, l_=$L$, v^<=$v_L(t)$, i_=$i_L(t)$] (6,0);
+      \end{circuitikz}
+    \end{center}
+  \end{figure}
+
+  \begin{equation*}
+    v_i(t) = V_0 \cos(\omega t)
+  \end{equation*}
+
+  \begin{align*}
+    i_R(t) &= \frac{V_0 \cos(\omega t)}{R} &
+    i_L(t) &= \frac{V_0 \sin(\omega t)}{\omega L} &
+    i_C(t) &= - \omega C V_0 \sin(\omega t)
+  \end{align*}
+
+  \begin{align*}
+    i_i(t) &= i_R(t) + i_L(t) + i_C(t) \\
+    &= \frac{V_0 \cos(\omega t)}{R} + \frac{V_0 \sin(\omega t)}{\omega L} - \omega C V_0 \sin(\omega t)\\
+    &= \frac{V_0 \cos(\omega t)}{R} + V_0\left[\frac{1}{\omega L} - \omega C \right] \sin(\omega t)
+  \end{align*}
+
+  \begin{align*}
+    P(t) &= \frac{V_0^2 \cos^{2}(\omega t)}{R} + V_0^2\left[\frac{1}{\omega L} - \omega C\right] \sin(\omega t) \cos(\omega t) \\
+    &= \frac{V_0^2 + V_0^2 \cos(2 \omega t)}{2R} + \frac{V_0^2}{2} \left[\frac{1}{\omega L} - \omega C\right] \sin(2 \omega t)\\
+    &= \frac{V_0^2}{2R} + \frac{V_0^2 \cos(2 \omega t)}{2R} + \frac{V_0^2}{2} \left[\frac{1}{\omega L} - \omega C\right] \sin(2 \omega t)
+  \end{align*}
+  \begin{align*}
+    \theta &= \alpha - \phi &
+    \alpha &: \mathrm{fase\mspace{5mu} de\mspace{5mu}} i &
+    \phi &: \mathrm{fase\mspace{5mu} de\mspace{5mu}} v
+  \end{align*}
+  \begin{align*}
+    P_{Prom} &= \frac{V_0^2}{2} I_0 \cos(\theta)
+  \end{align*}
+
+  \subsubsection*{$i(t)$ del circuito}
+
+  \begin{equation*}
+    i_i(t) = \sqrt{\frac{V_0^2}{R^2} + \left(\frac{V_0}{\omega L} - \omega CV_0\right)^2} \cos(\omega t - \beta)
+  \end{equation*}
+
+  \begin{equation*}
+    A \cos(\omega t) + B \sin(\omega t) = C \cos(\omega t - \theta)
+  \end{equation*}
+
+  \begin{equation*}
+    C = \sqrt{A^2 + B^2}, \theta = \tan^{-1}\left(\frac{A}{B} \right)
+  \end{equation*}
+
+  \begin{equation*}
+    \beta = tan^{-1}\left(\frac{\frac{V_0}{R}}{\frac{V_0}{\omega L} - \omega C V_0}\right)
+  \end{equation*}
+
   \begin{center}
-    \begin{circuitikz}
-      \draw (0,0)
-      to [sV, l=$v_i(t)$] (0,3)
-      to [short, i^=$i_R(t)$] (2,3)
-      to [R, l_=$R$, v^<=$v_R(t)$] (2, 0)
-      to [short] (0,0);
-    \end{circuitikz}
+    \begin{tikzpicture}
+      \draw
+      (0,0) coordinate (a)
+      -- (1.5,0) coordinate (label_adjacent)
+      node[below] {$\frac{V_0}{\omega L} - \omega C V_0$}
+      -- (3,0) coordinate (b)
+      -- (1.5, 1.5) coordinate (label_hypotenuse)
+      node[above right] {$\sqrt{\frac{V_0^2}{R^2} + \left(\frac{V_0}{\omega L} - \omega CV_0\right)^2}$}
+      -- (0,3) coordinate (c)
+      -- (0,1.5) coordinate (label_opposite)
+      node[left] {$\frac{V_0}{R}$}
+      -- (0,0) coordinate (d) node[above right] {}
+      pic["$\beta$", draw=black, angle eccentricity=1.2, angle radius=1cm]
+      {angle=c--b--a};
+    \end{tikzpicture}
   \end{center}
-\end{figure}
 
-Se define $v_i(t) = V_0 \cos(\omega t)$, se sabe $v_i(t) = v_R(t)$ y utilizando
-\ref{i_r}:
+  Aplicando fórmula:
+  \begin{equation*}
+    v_i(t) = V_0\cos(\omega t + 0 \degree)
+  \end{equation*}
+  \begin{equation*}
+    \phi = \beta - 90 \degree \to \cos(\theta) = \cos(\beta - 90 \degree) = \sin(\beta)
+  \end{equation*}
 
-\begin{equation*}
-  i_R(t) = \frac{V_0 \cos(\omega t)}{R}
-\end{equation*}
+  \begin{equation*}
+    \sin(\beta) = \frac{\frac{V_0}{R}}{\sqrt{\frac{V_0^2}{R^2} + \left(\frac{v_0}{\omega L} - \omega C V_0 \right)^2}}
+  \end{equation*}
 
-Utilizando \ref{pot}:
-\begin{equation*}
-  P_R(t) = \frac{V_0^2 \cos^{2}(\omega t)}{R}
-\end{equation*}
-
-Utilizando \ref{id_trig7}:
-\begin{equation}
-  P_R(t) = \frac{V_0^2 + V_0^2 \cos(2 \omega t)}{2 R} \label{pot_r}
-\end{equation}
-
-Ahora con \ref{pot_prom}:
-\begin{equation}
-  P_{Prom_{R}} = \frac{V_0^2}{2 R} \label{pot_prom_r}
-\end{equation}
-
-\subsection{Inductor}
-
-\begin{figure}[H]
-  \begin{center}
-    \begin{circuitikz}
-      \draw (0,0)
-      to [sV, l=$v_i(t)$] (0,3)
-      to [short, i^=$i_L(t)$] (2,3)
-      to [L, l_=$L$, v^<=$v_L(t)$] (2, 0)
-      to [short] (0,0);
-    \end{circuitikz}
-  \end{center}
-\end{figure}
-
-Se define $v_i(t) = V_0 \cos(\omega t)$, se sabe $v_i(t) = v_L(t)$ y utilizando
-\ref{i_l}:
-
-\begin{equation*}
-  i_L(t) = \frac{V_0 \sin(\omega t)}{\omega L} = \frac{V_0 \cos(\omega t - 90 \degree)}{\omega L}
-\end{equation*}
-
-Utilizando \ref{pot}:
-\begin{equation*}
-  P_L(t) = \frac{V_0^2 \sin(\omega t) \cos(\omega t)}{\omega L}
-\end{equation*}
-
-Utilizando \ref{id_trig9}:
-\begin{equation}
-  P_L(t) = \frac{V_0^2 \sin(2 \omega t)}{2 \omega L} \label{pot_l}
-\end{equation}
-
-Ahora con \ref{pot_prom}:
-\begin{equation}
-  P_{Prom_{L}} = 0 \label{pot_prom_l}
-\end{equation}
-
-\textbf{Nota:} El inductor adelanta la corriente $90 \degree$.
-
-\subsection{Capacitor}
-\begin{figure}[H]
-  \begin{center}
-    \begin{circuitikz}
-      \draw (0,0)
-      to [sV, l=$v_i(t)$] (0,3)
-      to [short, i^=$i_C(t)$] (2,3)
-      to [C, l_=$C$, v^<=$v_C(t)$] (2, 0)
-      to [short] (0,0);
-    \end{circuitikz}
-  \end{center}
-\end{figure}
-
-Se define $v_i(t) = V_0 \cos(\omega t)$, se sabe $v_i(t) = v_C(t)$ y utilizando
-\ref{i_c}:
-
-\begin{equation*}
-  i_C(t) = - \omega C V_0 \sin(\omega t) = \omega C V_0 \cos(\omega t + 90 \degree)
-\end{equation*}
-
-Utilizando \ref{pot}:
-\begin{equation*}
-  P_C(t) = - \omega C V_0^2 \sin(\omega t) \cos(\omega t)
-\end{equation*}
-
-Utilizando \ref{id_trig9}:
-\begin{equation}
-P_C(t) = - \frac{\omega C V_0^2 \sin(2 \omega t)}{2} \label{pot_c}
-\end{equation}
-
-Ahora con \ref{pot_prom}:
-\begin{equation}
-  P_{Prom_{C}} = 0 \label{pot_prom_c}
-\end{equation}
-
-\textbf{Nota:} El capacitor atrasa la corriente $90 \degree$.
-
-\subsection{Circuito RLC en paralelo}
-\begin{figure}[H]
-  \begin{center}
-    \begin{circuitikz}
-      \draw (0,0)
-      to [sV, l=$v_i(t)$] (0,3)
-      to [short, i^=$i_i(t)$] (3,3)
-      to [short] (9,3)
-      to [C, l_=$C$, v^<=$v_C(t)$, i_=$i_C(t)$] (9, 0)
-      to [short] (0,0);
-      \draw (3,3)
-      to[R, l_=$R$, v^<=$v_R(t)$, i_=$i_R(t)$] (3,0);
-      \draw (6,3)
-      to[L, l_=$L$, v^<=$v_L(t)$, i_=$i_L(t)$] (6,0);
-    \end{circuitikz}
-  \end{center}
-\end{figure}
-
-\begin{equation*}
-  v_i(t) = V_0 \cos(\omega t)
-\end{equation*}
-
-\begin{align*}
-  i_R(t) &= \frac{V_0 \cos(\omega t)}{R} &
-  i_L(t) &= \frac{V_0 \sin(\omega t)}{\omega L} &
-  i_C(t) &= - \omega C V_0 \sin(\omega t)
-\end{align*}
-
-\begin{align*}
-  i_i(t) &= i_R(t) + i_L(t) + i_C(t) \\
-  &= \frac{V_0 \cos(\omega t)}{R} + \frac{V_0 \sin(\omega t)}{\omega L} - \omega C V_0 \sin(\omega t)\\
-  &= \frac{V_0 \cos(\omega t)}{R} + V_0\left[\frac{1}{\omega L} - \omega C \right] \sin(\omega t)
-\end{align*}
-
-\begin{align*}
-  P(t) &= \frac{V_0^2 \cos^{2}(\omega t)}{R} + V_0^2\left[\frac{1}{\omega L} - \omega C\right] \sin(\omega t) \cos(\omega t) \\
-  &= \frac{V_0^2 + V_0^2 \cos(2 \omega t)}{2R} + \frac{V_0^2}{2} \left[\frac{1}{\omega L} - \omega C\right] \sin(2 \omega t)\\
-  &= \frac{V_0^2}{2R} + \frac{V_0^2 \cos(2 \omega t)}{2R} + \frac{V_0^2}{2} \left[\frac{1}{\omega L} - \omega C\right] \sin(2 \omega t)
-\end{align*}
-\begin{align*}
-  \theta &= \alpha - \phi &
-  \alpha &: \mathrm{fase\mspace{5mu} de\mspace{5mu}} i &
-  \phi &: \mathrm{fase\mspace{5mu} de\mspace{5mu}} v
-\end{align*}
-\begin{align*}
-  P_{Prom} &= \frac{V_0^2}{2} I_0 \cos(\theta)
-\end{align*}
-
-\subsubsection*{$i(t)$ del circuito}
-
-\begin{equation*}
-  i_i(t) = \sqrt{\frac{V_0^2}{R^2} + \left(\frac{V_0}{\omega L} - \omega CV_0\right)^2} \cos(\omega t - \beta)
-\end{equation*}
-
-\begin{equation*}
-  A \cos(\omega t) + B \sin(\omega t) = C \cos(\omega t - \theta)
-\end{equation*}
-
-\begin{equation*}
-  C = \sqrt{A^2 + B^2}, \theta = \tan^{-1}\left(\frac{A}{B} \right)
-\end{equation*}
-
-\begin{equation*}
-  \beta = tan^{-1}\left(\frac{\frac{V_0}{R}}{\frac{V_0}{\omega L} - \omega C V_0}\right)
-\end{equation*}
-
-\begin{center}
-  \begin{tikzpicture}
-    \draw
-    (0,0) coordinate (a)
-    -- (1.5,0) coordinate (label_adjacent)
-    node[below] {$\frac{V_0}{\omega L} - \omega C V_0$}
-    -- (3,0) coordinate (b)
-    -- (1.5, 1.5) coordinate (label_hypotenuse)
-    node[above right] {$\sqrt{\frac{V_0^2}{R^2} + \left(\frac{V_0}{\omega L} - \omega CV_0\right)^2}$}
-    -- (0,3) coordinate (c)
-    -- (0,1.5) coordinate (label_opposite)
-    node[left] {$\frac{V_0}{R}$}
-    -- (0,0) coordinate (d) node[above right] {}
-    pic["$\beta$", draw=black, angle eccentricity=1.2, angle radius=1cm]
-    {angle=c--b--a};
-  \end{tikzpicture}
-\end{center}
-
-Aplicando fórmula:
-\begin{equation*}
-  v_i(t) = V_0\cos(\omega t + 0 \degree)
-\end{equation*}
-\begin{equation*}
-  \phi = \beta - 90 \degree \to \cos(\theta) = \cos(\beta - 90 \degree) = \sin(\beta)
-\end{equation*}
-
-\begin{equation*}
-  \sin(\beta) = \frac{\frac{V_0}{R}}{\sqrt{\frac{V_0^2}{R^2} + \left(\frac{v_0}{\omega L} - \omega C V_0 \right)^2}}
-\end{equation*}
-
-\begin{equation}
-  P_{Prom_{Paralelo}} = \frac{V_0 \sqrt{\frac{V_0^2}{R^2} + \left(\frac{V_0}{\omega L} - \omega C V_0 \right)^2}}{2 \sqrt{\frac{V_0^2}{R^2} + \left(\frac{V_0}{\omega L} - \omega C V_0 \right)^2}} \cdot \frac{V_0}{R} = \frac{V_0^2}{2R} \label{pot_prom_paral}
-\end{equation}
+  \begin{equation}
+    P_{Prom_{Paralelo}} = \frac{V_0 \sqrt{\frac{V_0^2}{R^2} + \left(\frac{V_0}{\omega L} - \omega C V_0 \right)^2}}{2 \sqrt{\frac{V_0^2}{R^2} + \left(\frac{V_0}{\omega L} - \omega C V_0 \right)^2}} \cdot \frac{V_0}{R} = \frac{V_0^2}{2R} \label{pot_prom_paral}
+  \end{equation}

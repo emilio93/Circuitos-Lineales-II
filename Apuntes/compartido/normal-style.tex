@@ -1,0 +1,27 @@
+% regular page styling
+\makepagestyle{normal}
+
+\makeheadrule {normal}{\textwidth}{\normalrulethickness}
+% \makefootrule {myruled}{\textwidth}{\normalrulethickness}{\footruleskip}
+
+\makeevenhead {normal}{}{\small\leftmark\hfill} {}
+\makeoddhead {normal}{}{\hfill\small\rightmark}{}
+\makeevenfoot {normal}{}{\small\thepage\hfill} {}
+\makeoddfoot {normal}{}{\hfill\small\thepage} {}
+
+\makeatletter % because of \@chapapp
+\makepsmarks {normal}{
+  \nouppercaseheads
+  \createmark {chapter} {both} {shownumber}{}{. \ }
+  \createmark {section} {right}{nonumber}{} {. \ }
+  \createmark {subsection} {right}{nonumber}{} {. \ }
+  \createmark {subsubsection}{right}{shownumber}{} {. \ }
+  \createplainmark {toc} {both} {\contentsname}
+  \createplainmark {lof} {both} {\listfigurename}
+  \createplainmark {lot} {both} {\listtablename}
+  \createplainmark {bib} {both} {\bibname}
+  \createplainmark {index} {both} {\indexname}
+  \createplainmark {glossary} {both} {\glossaryname}
+}
+\makeatother
+\setsecnumdepth{subsubsection}
