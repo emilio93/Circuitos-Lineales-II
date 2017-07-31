@@ -131,11 +131,14 @@ $(document).ready(function() {
 
   function loadDownloads() {
     var html = '<h2>Descargas</h2>\n<div class="scroll-holder">\n<div>\n';
+
     $.ajax('https://api.github.com/repos/emilio93/Circuitos-Lineales-II/releases', {})
     .then(function(releases) {
       for (var i = 0; i < releases.length && !releases[i].draft; i++) {
-        html += '<h3>' + releases[i].tag_name + ' - ' + releases[i].name + '</h3>\n';
-        html += '<em>' + formatDate(releases[i].published_at) + '</em>\n';
+        html += '<a class="giturl" href="' + releases[i].html_url + '" title="ver en Github">';
+        html += '<h3 class="title-inline">' + releases[i].tag_name + ' - ' + releases[i].name + '</h3>\n';
+        html += '</a>';
+        html += '&nbsp;<em>' + formatDate(releases[i].published_at) + '</em>';
         html += '<p>' + releases[i].body + '</p>\n';
         html += '<h4>Descargas</h4>\n<ul>\n';
         for (var j = 0; j < releases[i].assets.length; j++) {
@@ -148,7 +151,7 @@ $(document).ready(function() {
         html += '<li><a href="' + releases[i].zipball_url + '">Código Fuente(.zip)</a></li>\n';
         html += '<li><a href="' + releases[i].tarball_url + '">Código Fuente(.tar.gz)</a></li>\n';
         html += '</ul>\n';
-        html += '<a href="' + releases[i].html_url + '">Ver en Github</a>\n<hr>\n';
+        html += '<hr>\n';
       }
       html += '</div>\n</div>\n';
       $('#contenido > div > div')
