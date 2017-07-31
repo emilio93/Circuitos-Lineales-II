@@ -4,9 +4,9 @@
 ## Contenidos
 - [Sobre el Repositorio](#sobre-el-repositorio)
 - [¿Cómo utilizar?](#cómo-utilizar)
-  - [Comprobando LaTeX](#comprobando-latex)
   - [Corriendo `build.bat`](#corriendo-buildbat)
   - [Compilando](#compilando)
+  - [Comprobando LaTeX](#comprobando-latex)
 
 ## Sobre el Repositorio
 El propósito de este repositorio es el de transcribir material del curso de
@@ -17,6 +17,14 @@ son el principal objetivo a completar por el momento, y conforme transcurra el
 semestre(ii 2016) se irá agregando los apuntes de la clase.
 
 ## ¿Cómo Utilizar?
+
+### Utilizando el script build
+La forma más fácil para obtener el pdf es corriendo el script de build
+disponible para Linux y Windows.
+
+### Compilando
+
+El archivo `.tex` de entrada es [```main.tex```](https://github.com/emilio93/Circuitos-Lineales-II/blob/master/Apuntes/main.tex), se puede correr `pdflatex main` para compilarlo.
 
 ### Comprobando LaTeX
 
@@ -41,11 +49,3 @@ compiled with libpng version 1.6.19; using 1.6.19
 compiled with poppler version 0.32.0
 compiled with jpeg version 8.4
 ```
-
-### Corriendo `build.bat`
-La forma más fácil para obtener el pdf es corriendo el archivo
-[`build.bat`](https://github.com/emilio93/Circuitos-Lineales-II/blob/master/build.bat).
-
-### Compilando
-
-El archivo `.tex` de entrada es [```main.tex```](https://github.com/emilio93/Circuitos-Lineales-II/blob/master/Apuntes/main.tex), se puede correr `pdflatex main` para compilarlo.
