@@ -128,9 +128,6 @@ $(document).ready(function() {
     loadFile('readmes/inicio.md', 'Circuitos Lineales II');
   };
 
-  function loadNotes() {
-    loadFile('readmes/apuntes.md', 'Apuntes');
-  };
 
   function loadDownloads() {
     var html = '<h2>Descargas</h2>\n<div class="scroll-holder">\n<div>\n';
@@ -190,11 +187,6 @@ $(document).ready(function() {
       $('nav button').removeClass('active').removeClass('disabled');
       loadHome();
       $('nav button.inicio').addClass('active').addClass('disabled');
-    }
-    else if (id === 'apuntes') {
-      $('nav button').removeClass('active').removeClass('disabled');
-      loadNotes();
-      $('nav button.apuntes').addClass('active').addClass('disabled');
     }
     else if (id === 'descargas') {
       $('nav button').removeClass('active').removeClass('disabled');
